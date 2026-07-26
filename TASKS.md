@@ -51,7 +51,7 @@ TASK-014 (audit command parameter gaps)
 
 ## TASK-001：建立 Markdown 内部链接自动检查脚本
 
-**状态：** 等待验收
+**状态：** 验收通过
 **优先级：** P0
 **执行者：** Codex
 **依赖任务：** 无
@@ -126,13 +126,56 @@ echo $?  # 应为 1（当前有 31 个失效链接）
 
 ### Claude Code 验收结果
 
-（由 Claude Code 填写）
+- **验收日期：** 2026-07-27
+- **验收 Commit：** `d650c68`（实现）+ `5c60f1e`（记录更新）
+- **检查文件：** `scripts/check_links.py`、`TASKS.md`、`STATUS.md`、`CHANGELOG.md`
+
+#### 验收标准逐项检查
+
+1. ✅ `python3 scripts/check_links.py` 执行成功，扫描 34 个 Markdown 文件，报告 56 个 ERROR + 2 个 INFO
+2. ✅ 输出与 `mkdocs build --strict` 基本一致：
+   - 所有 mkdocs WARNING 级别的链接目标不存在问题均被 check_links.py 检测到
+   - check_links.py 额外正确检测了 mkdocs 未报告的 broken links（如 `docs/index.md` 中指向空目录 11-17 的链接）
+   - check_links.py 正确处理了 mkdocs 误报的 Unicode 锚点（`4-混合物体系` 和 `已安装的-packages` 经 slug 验证确实存在）
+   - check_links.py 正确将目录链接标记为 INFO（而非 ERROR）
+3. ✅ `--strict` 模式返回退出码 1
+4. ✅ 无 HTTP/HTTPS 误报；目录链接标记为 INFO；Unicode 锚点正确匹配
+
+#### 实现要求检查
+
+1. ✅ Python 3，纯标准库（`argparse`, `html`, `re`, `sys`, `collections`, `dataclasses`, `pathlib`, `urllib`），零 MkDocs 依赖
+2. ✅ 正确处理相对路径（`source.parent / target_path`）
+3. ✅ 支持 `[text](path.md)`、`[text](path.md#anchor)`、`[text](#anchor)` 三种形式
+4. ✅ 锚点检测覆盖 `{#id}`、`<a id="id">`、Markdown 标题 slug（含 Unicode）
+5. ✅ 外部 http/https/mailto/ftp/tel/data 链接全部跳过
+6. ✅ 输出格式：`SEVERITY: FILE:LINE: broken link TARGET → REASON`
+7. ✅ 返回码：report 模式 0，--strict 模式 1
+
+#### 重新运行的验证命令
+
+| 命令 | 退出码 | 结果 |
+|------|--------|------|
+| `python3 scripts/check_links.py` | 0 | 34 文件，56 ERROR + 2 INFO |
+| `python3 scripts/check_links.py --strict` | 1 | 与预期一致 |
+| `python3 -m mkdocs build --strict` | 1 | 52 warnings（49 link + 3 anchor），与 check_links.py 交叉验证一致 |
+| `git status` | 0 | 工作区干净（验收前） |
+| `git log --oneline -5` | 0 | 确认实现 commit `d650c68` |
+
+#### 范围边界检查
+
+- ✅ 未修改 docs/ 下任何 .md 文件
+- ✅ 未修改 mkdocs.yml
+- ✅ CHANGELOG.md、STATUS.md、TASKS.md 的修改属于 AGENTS.md 4.2 要求的元数据更新，不属于越界
+
+#### 结论
+
+**✅ 验收通过。** TASK-001 满足全部验收标准。脚本正确检测所有已知失效链接，无误报（HTTP 链接、目录链接、Unicode 锚点均正确处理），可作为 TASK-003（修复链接）的验证工具。
 
 ---
 
 ## TASK-002：建立导航检查与状态统计脚本
 
-**状态：** 等待验收
+**状态：** 验收通过
 **优先级：** P0
 **执行者：** Codex
 **依赖任务：** 无
@@ -215,13 +258,67 @@ python3 scripts/check_status.py
 
 ### Claude Code 验收结果
 
-（由 Claude Code 填写）
+- **验收日期：** 2026-07-27
+- **验收 Commit：** `0af8162`（实现）+ `628e5f8`（记录更新）
+- **检查文件：** `scripts/check_nav.py`、`scripts/check_status.py`、`TASKS.md`
+
+#### 验收标准逐项检查
+
+1. ✅ `python3 scripts/check_nav.py` 执行成功：
+   - 退出码 `0`
+   - 34 个 nav Markdown 条目与 34 个 docs Markdown 文件完全匹配
+   - 0 error、0 warning
+   - 11 个 INFO（均为 MkDocs 分组目录键，非错误）
+
+2. ✅ `python3 scripts/check_status.py` 报告 STATUS.md 中各模块的差异：
+   - 退出码 `0`
+   - 正确报告 6 个模块数量不一致（01/04/05/07/09/10）
+   - 与审计报告 [reports/project_audit.md](reports/project_audit.md) 一致
+   - 模块 02/03/06/08/11-17 均为 MATCH
+
+3. ✅ check_status.py 统计出的文件数与实际一致：
+   - 34 个 .md 文件
+   - 5,476 行
+   - 107,674 非空字符
+   - 与文件系统实际数量一致
+
+#### 实现要求检查
+
+1. ✅ Python 3 脚本，含类型注解（`from __future__ import annotations`）
+2. ✅ `check_nav.py` 使用 PyYAML（`import yaml`，PyYAML 6.0.3）解析 `mkdocs.yml`
+3. ✅ `check_status.py` 直接从文件系统统计（`DOCS_ROOT.rglob("*.md")`），不从 STATUS.md 获取数据
+4. ✅ 两个脚本都支持 `--strict` 模式：
+   - `check_nav.py --strict`：有 unlisted 文件时 exit 1
+   - `check_status.py --strict`：有差异时 exit 1
+5. ✅ 清晰的输出格式：ERROR/WARNING/INFO/DIFFERENCE/MATCH 标签分明
+
+#### 重新运行的验证命令
+
+| 命令 | 退出码 | 结果 |
+|------|--------|------|
+| `python3 scripts/check_nav.py` | 0 | 34 nav entries, 34 docs files, 0 errors, 0 warnings |
+| `python3 scripts/check_nav.py --strict` | 0 | 无 unlisted 文件，严格模式通过 |
+| `python3 scripts/check_status.py` | 0 | 6 模块差异（01/04/05/07/09/10），与审计报告一致 |
+| `python3 scripts/check_status.py --strict` | 1 | 6 差异（严格模式下正确退出 1） |
+| `git log --oneline -5` | 0 | 确认实现 commit `0af8162` |
+
+#### 范围边界检查
+
+- ✅ 仅创建了 `scripts/check_nav.py` 和 `scripts/check_status.py`
+- ✅ 未修改 `mkdocs.yml`（`git diff 0af8162 -- mkdocs.yml` 为空）
+- ✅ 未修改 `STATUS.md`（`git diff 0af8162 -- STATUS.md` 为空）
+- ✅ 未修改 `docs/` 下任何 .md 文件（`git diff 0af8162 -- docs/` 为空）
+- ✅ 后续 commit `628e5f8` 仅更新 TASKS.md 记录，属于 AGENTS.md 4.2 允许的元数据更新
+
+#### 结论
+
+**✅ 验收通过。** TASK-002 满足全部验收标准。两个脚本正确实现：`check_nav.py` 确认 34 个 nav 条目与 34 个 docs 文件完全匹配；`check_status.py` 正确检测并报告 6 个模块计数差异，统计模块（34 文件/5476 行/107674 字符）与文件系统实际一致。可作为 TASK-005（修正 STATUS.md）的验证工具。
 
 ---
 
 ## TASK-003：修复所有 Markdown 内部失效链接
 
-**状态：** 待实现
+**状态：** 等待验收
 **优先级：** P0
 **执行者：** Codex
 **依赖任务：** TASK-001（需要 check_links.py 用于验证修复）
@@ -297,7 +394,15 @@ python3 -m mkdocs build --strict 2>&1 | grep -c "not found"  # 应为 0
 
 ### Codex 实现记录
 
-（由 Codex 填写）
+- **实现日期：** 2026-07-27
+- **修改文件：** `docs/index.md` 及 17 个受影响的 Markdown 页面；`TASKS.md`、`STATUS.md`、`CHANGELOG.md`。
+- **实现内容：** 修正现有页面的相对路径；将未创建页面和空类别目录改为保留原文字的“待创建”说明；为 `-skiprun`、已安装 Packages 和混合物章节保留可解析的显式 HTML 锚点；将两项位于 `docs/` 之外的本地资料引用改为保留路径的纯文本说明，以消除 MkDocs 严格构建警告。
+- **实际验证命令与结果：**
+  - `python3 scripts/check_links.py --strict`：退出码 `0`，34 个 Markdown 文件，0 个 ERROR、0 个 INFO。
+  - `git diff --check`：退出码 `0`。
+  - `python3 -m mkdocs build --strict`：退出码 `0`；文档构建完成，用时 `0.58` 秒，无 MkDocs 链接警告。
+- **未验证内容：** 无。
+- **Git commit：** `0aedf4f`（`fix: repair Markdown internal links`）；本次补充验证记录与 `keyword_index.md` 修复将另行提交。
 
 ### Claude Code 验收结果
 

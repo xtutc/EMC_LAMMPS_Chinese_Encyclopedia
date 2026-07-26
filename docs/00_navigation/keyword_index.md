@@ -36,6 +36,6 @@
 ## 完整参考
 
 - [EMC 官网](https://montecarlo.sourceforge.net/emc/Welcome.html)
-- [EMC 手册 PDF (906KB)](../../sources/emc/emc_manual.pdf)
-- [EMC 关键字清单 CSV](../../reports/emc_keyword_inventory.csv)
+- EMC 手册 PDF（906KB，本地来源：`sources/emc/emc_manual.pdf`）
+- EMC 关键字清单 CSV（本地来源：`reports/emc_keyword_inventory.csv`）
 - [EMC 手册第6章](../01_emc_official_translation/emc_ch6_scripting_commands.md)
