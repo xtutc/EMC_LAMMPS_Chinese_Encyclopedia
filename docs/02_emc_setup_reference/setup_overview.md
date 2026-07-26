@@ -228,7 +228,7 @@ EMC Setup (emc.pl Perl)
 ## 8. 相关页面
 
 - [EMC Setup 命令行完整参考](setup_cli.md)
-- [EMC Setup 文件规则](setup_file_rules.md)
-- [EMC 主程序命令行](emc_cli.md)
+- EMC Setup 文件规则（待创建）
+- [EMC 主程序命令行](../03_emc_command_reference/emc_cli.md)
 - [EMC→LAMMPS 完整工作流](../09_emc_to_lammps/complete_workflow.md)
 - [力场清单](../05_force_fields/emc_force_field_inventory.md)

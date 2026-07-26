@@ -342,8 +342,8 @@ write_data      npt_final.data
 
 ## 8. 相关页面
 
-- [LAMMPS 命令行参数](running/lammps_cli_options.md)
-- [LAMMPS data 文件格式](../08_lammps_file_formats/data_file.md)
+- [LAMMPS 命令行参数](../running/lammps_cli_options.md)
+- [LAMMPS data 文件格式](../../08_lammps_file_formats/data_file.md)
 - [最小化流程](../../10_simulation_workflows/minimization.md)
 - [NVT 流程](../../10_simulation_workflows/nvt.md)
 - [NPT 流程](../../10_simulation_workflows/npt.md)

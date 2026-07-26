@@ -20,20 +20,20 @@
 
 | 我想... | 去哪里 |
 |---------|--------|
-| 了解 EMC 是什么 | [EMC 官方手册翻译](../01_emc_official_translation/index.md) |
-| 写一个 EMC Setup 文件 | [EMC Setup 参考](../02_emc_setup_reference/setup_overview.md) |
-| 查找 EMC 关键字含义 | [关键字索引](../00_navigation/keyword_index.md) |
-| 查找 LAMMPS 命令 | [命令索引](../00_navigation/command_index.md) |
-| 从 EMC 输出运行 LAMMPS | [EMC→LAMMPS 完整工作流](../09_emc_to_lammps/complete_workflow.md) |
-| 写一个最小化脚本 | [最小化流程](../10_simulation_workflows/minimization.md) |
-| 写一个 NVT 脚本 | [NVT 流程](../10_simulation_workflows/nvt.md) |
-| 写一个 NPT 脚本 | [NPT 流程](../10_simulation_workflows/npt.md) |
-| 选择合适的力场 | [力场清单](../05_force_fields/emc_force_field_inventory.md) |
-| 理解 LAMMPS 输入脚本 | [输入脚本语法](../06_lammps_user_guide_translation/input_scripts/input_script_syntax.md) |
-| 理解 LAMMPS 命令行 | [命令行参数](../06_lammps_user_guide_translation/running/lammps_cli_options.md) |
-| 理解 LAMMPS data 文件 | [data 文件格式](../08_lammps_file_formats/data_file.md) |
-| 排查错误 | [错误索引](../00_navigation/error_index.md) |
-| 了解单位和单位映射 | [单位映射](../09_emc_to_lammps/units_mapping.md) |
+| 了解 EMC 是什么 | EMC 官方手册翻译（待创建） |
+| 写一个 EMC Setup 文件 | [EMC Setup 参考](02_emc_setup_reference/setup_overview.md) |
+| 查找 EMC 关键字含义 | [关键字索引](00_navigation/keyword_index.md) |
+| 查找 LAMMPS 命令 | [命令索引](00_navigation/command_index.md) |
+| 从 EMC 输出运行 LAMMPS | [EMC→LAMMPS 完整工作流](09_emc_to_lammps/complete_workflow.md) |
+| 写一个最小化脚本 | [最小化流程](10_simulation_workflows/minimization.md) |
+| 写一个 NVT 脚本 | [NVT 流程](10_simulation_workflows/nvt.md) |
+| 写一个 NPT 脚本 | [NPT 流程](10_simulation_workflows/npt.md) |
+| 选择合适的力场 | [力场清单](05_force_fields/emc_force_field_inventory.md) |
+| 理解 LAMMPS 输入脚本 | [输入脚本语法](06_lammps_user_guide_translation/input_scripts/input_script_syntax.md) |
+| 理解 LAMMPS 命令行 | [命令行参数](06_lammps_user_guide_translation/running/lammps_cli_options.md) |
+| 理解 LAMMPS data 文件 | [data 文件格式](08_lammps_file_formats/data_file.md) |
+| 排查错误 | [错误索引](00_navigation/error_index.md) |
+| 了解单位和单位映射 | [单位映射](09_emc_to_lammps/units_mapping.md) |
 
 ---
 
@@ -43,39 +43,39 @@
 
 | 章节 | 内容 |
 |------|------|
-| [01 EMC 官方手册翻译](../01_emc_official_translation/index.md) | EMC 官方 PDF 手册的逐章中文翻译 |
-| [02 EMC Setup 参考](../02_emc_setup_reference/setup_overview.md) | EMC Setup (emc.pl) 的完整命令和文件格式参考 |
-| [03 EMC 命令参考](../03_emc_command_reference/emc_cli.md) | EMC 主程序命令行、工作流和输出文件 |
-| [04 EMC 建模](../04_emc_modeling/molecules.md) | 各类体系的 EMC 建模教程 |
-| [05 力场参考](../05_force_fields/emc_force_field_inventory.md) | EMC 支持的力场清单和 LAMMPS 映射 |
+| 01 EMC 官方手册翻译（待创建） | EMC 官方 PDF 手册的逐章中文翻译 |
+| [02 EMC Setup 参考](02_emc_setup_reference/setup_overview.md) | EMC Setup (emc.pl) 的完整命令和文件格式参考 |
+| [03 EMC 命令参考](03_emc_command_reference/emc_cli.md) | EMC 主程序命令行、工作流和输出文件 |
+| [04 EMC 建模](04_emc_modeling/molecules.md) | 各类体系的 EMC 建模教程 |
+| [05 力场参考](05_force_fields/emc_force_field_inventory.md) | EMC 支持的力场清单和 LAMMPS 映射 |
 
 ### 第二部分：LAMMPS
 
 | 章节 | 内容 |
 |------|------|
-| [06 LAMMPS 用户指南翻译](../06_lammps_user_guide_translation/installation/) | LAMMPS 官方 User Guide 的中文翻译 |
-| [07 LAMMPS 命令参考](../07_lammps_command_reference/index.md) | 每个 LAMMPS 命令的完整中文参考 |
-| [08 LAMMPS 文件格式](../08_lammps_file_formats/data_file.md) | 输入脚本、data 文件、restart、dump 等格式说明 |
+| 06 LAMMPS 用户指南翻译（待创建） | LAMMPS 官方 User Guide 的中文翻译 |
+| 07 LAMMPS 命令参考（待创建） | 每个 LAMMPS 命令的完整中文参考 |
+| [08 LAMMPS 文件格式](08_lammps_file_formats/data_file.md) | 输入脚本、data 文件、restart、dump 等格式说明 |
 
 ### 第三部分：实践
 
 | 章节 | 内容 |
 |------|------|
-| [09 EMC→LAMMPS](../09_emc_to_lammps/complete_workflow.md) | 从 EMC 构建到 LAMMPS 模拟的完整工作流 |
-| [10 模拟流程](../10_simulation_workflows/minimization.md) | 最小化、升温、NVT、NPT、生产模拟等标准流程 |
-| [11 并行与 HPC](../11_parallel_and_hpc/) | MPI、OpenMP、SLURM 作业脚本 |
-| [12 可视化](../12_visualization/) | OVITO、VMD 可视化指南 |
-| [13 分析](../13_analysis/) | 径向分布函数、均方位移、密度分布等 |
-| [14 示例](../14_examples/) | 所有验证过的示例 |
+| [09 EMC→LAMMPS](09_emc_to_lammps/complete_workflow.md) | 从 EMC 构建到 LAMMPS 模拟的完整工作流 |
+| [10 模拟流程](10_simulation_workflows/minimization.md) | 最小化、升温、NVT、NPT、生产模拟等标准流程 |
+| 11 并行与 HPC（待创建） | MPI、OpenMP、SLURM 作业脚本 |
+| 12 可视化（待创建） | OVITO、VMD 可视化指南 |
+| 13 分析（待创建） | 径向分布函数、均方位移、密度分布等 |
+| 14 示例（待创建） | 所有验证过的示例 |
 
 ### 第四部分：索引与工具
 
 | 章节 | 内容 |
 |------|------|
-| [00 导航](../00_navigation/how_to_use.md) | 任务索引、命令索引、关键字索引、错误索引 |
-| [15 错误排查](../15_errors/) | 常见错误和解决方法 |
-| [16 术语表](../16_glossary/) | 中英文术语对照 |
-| [17 参考文献](../17_references/) | 引用来源 |
+| [00 导航](00_navigation/how_to_use.md) | 任务索引、命令索引、关键字索引、错误索引 |
+| 15 错误排查（待创建） | 常见错误和解决方法 |
+| 16 术语表（待创建） | 中英文术语对照 |
+| 17 参考文献（待创建） | 引用来源 |
 
 ---
 

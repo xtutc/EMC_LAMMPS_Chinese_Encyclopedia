@@ -246,5 +246,5 @@ EMC Setup 生成的脚本通常包含 NVT 和 NPT。关键参数由 Setup 命令
 - [最小化](minimization.md)
 - [NVT 平衡](nvt.md)
 - [生产模拟](production.md)
-- [NVE 流程](nve.md)
-- [平衡检查](equilibrium_check.md)
+- NVE 流程（待创建）
+- 平衡检查（待创建）

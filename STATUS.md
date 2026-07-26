@@ -2,7 +2,7 @@
 
 > 最后更新：2026-07-26
 
-> 阶段 1 Harness：TASK-001 已实现 `scripts/check_links.py`，当前等待 Claude Code 验收。
+> 阶段 1 Harness：TASK-001、TASK-002 已验收通过；TASK-003 已修复全部 Markdown 内部失效链接，等待验收。
 
 ## 总体完成率
 

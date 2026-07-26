@@ -235,6 +235,6 @@ EMC 生成的聚合物体系输出包含：
 ## 9. 相关页面
 
 - [小分子建模](molecules.md)
-- [共聚物建模](random_copolymers.md)
-- [混合物建模](mixtures.md)
+- 共聚物建模（待创建）
+- 混合物建模（待创建）
 - [EMC→LAMMPS 工作流](../09_emc_to_lammps/complete_workflow.md)

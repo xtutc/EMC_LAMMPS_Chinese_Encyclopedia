@@ -201,5 +201,5 @@ EMC Setup 的 `-dtthermo` 参数控制 thermo 输出频率。生成的脚本通�
 ## 相关页面
 
 - [dump 命令](../dumps/dump.md)
-- [compute 命令](../computes/)
+- compute 命令（相关类别目录，待创建）
 - [最小化流程](../../10_simulation_workflows/minimization.md)

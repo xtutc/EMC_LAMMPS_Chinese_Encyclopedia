@@ -178,7 +178,7 @@ ITEM END           ← 结束定义
 
 ### 5.2 典型 EMC 输入示例
 
-见 [EMC Setup 文件规则](../02_emc_setup_reference/setup_file_rules.md) 获取完整的 `.emc` 文件格式说明和 ITEM 关键字详解。
+见 EMC Setup 文件规则（待创建）获取完整的 `.emc` 文件格式说明和 ITEM 关键字详解。
 
 ---
 
@@ -257,7 +257,7 @@ emc -quiet -nthreads=16 build.emc
 ## 10. 相关页面
 
 - [EMC Setup 总览](../02_emc_setup_reference/setup_overview.md)
-- [EMC Setup 命令行](setup_cli.md)
-- [EMC Setup 文件规则](setup_file_rules.md)
-- [EMC 文件工作流](emc_file_workflow.md)
+- [EMC Setup 命令行](../02_emc_setup_reference/setup_cli.md)
+- EMC Setup 文件规则（待创建）
+- EMC 文件工作流（待创建）
 - [EMC→LAMMPS 工作流](../09_emc_to_lammps/complete_workflow.md)

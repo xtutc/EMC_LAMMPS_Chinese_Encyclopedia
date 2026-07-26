@@ -151,5 +151,5 @@ EMC 生成的 LAMMPS 输入脚本通常包含 dump 命令。Setup 的 `-dtdump` 
 ## 相关页面
 
 - [thermo 命令](../computes/thermo.md)
-- [write_dump 命令](write_dump.md)
-- [read_dump 命令](read_dump.md)
+- write_dump 命令（待创建）
+- read_dump 命令（待创建）

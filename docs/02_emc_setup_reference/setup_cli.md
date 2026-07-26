@@ -147,6 +147,6 @@ perl emc.pl -field=opls-aa -density="0.9,0.9" -direction=z interface 2 500 water
 ## 相关页面
 
 - [EMC Setup 总览](setup_overview.md)
-- [EMC Setup 文件规则](setup_file_rules.md)
+- EMC Setup 文件规则（待创建）
 - [EMC 主程序命令行](../03_emc_command_reference/emc_cli.md)
 - [EMC→LAMMPS 工作流](../09_emc_to_lammps/complete_workflow.md)

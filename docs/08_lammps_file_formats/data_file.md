@@ -434,7 +434,7 @@ Dihedrals
 
 ## 13. 相关页面
 
-- [LAMMPS 输入脚本语法](input_scripts/input_script_syntax.md)
-- [EMC→LAMMPS 文件映射](../../09_emc_to_lammps/file_mapping.md)
-- [EMC→LAMMPS 单位映射](../../09_emc_to_lammps/units_mapping.md)
-- [LAMMPS 力场参考](../07_lammps_command_reference/force_fields/)
+- [LAMMPS 输入脚本语法](../06_lammps_user_guide_translation/input_scripts/input_script_syntax.md)
+- EMC→LAMMPS 文件映射（待创建）
+- [EMC→LAMMPS 单位映射](../09_emc_to_lammps/units_mapping.md)
+- LAMMPS 力场参考（相关类别目录，待创建）

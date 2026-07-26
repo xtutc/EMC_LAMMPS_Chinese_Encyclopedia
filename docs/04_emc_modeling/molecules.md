@@ -82,6 +82,8 @@ EMC 内建了许多常见分子的化学定义。以下是通过 Setup 可以直
 
 ---
 
+<a id="4-混合物体系"></a>
+
 ## 4. 混合物体系
 
 ### 4.1 水 + 乙醇混合物
@@ -179,7 +181,7 @@ Atoms
 ## 8. 相关页面
 
 - [聚合物建模](homopolymers.md)
-- [混合物建模](mixtures.md)
+- 混合物建模（待创建）
 - [力场清单](../05_force_fields/emc_force_field_inventory.md)
 - [EMC→LAMMPS 工作流](../09_emc_to_lammps/complete_workflow.md)
 - [EMC Setup 总览](../02_emc_setup_reference/setup_overview.md)

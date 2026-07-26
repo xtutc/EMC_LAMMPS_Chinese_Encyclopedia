@@ -203,5 +203,5 @@ run             50000
 ## 9. 相关页面
 
 - [EMC→LAMMPS 完整工作流](complete_workflow.md)
-- [力场映射表](force_field_mapping.md)
-- [力场基础](../../05_force_fields/fundamentals.md)
+- 力场映射表（待创建）
+- [力场基础](../05_force_fields/fundamentals.md)

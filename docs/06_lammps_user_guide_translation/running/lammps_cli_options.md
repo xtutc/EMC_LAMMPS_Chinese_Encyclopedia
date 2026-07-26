@@ -201,6 +201,8 @@ lmp_serial -screen sim_output.txt  # 屏幕输出写入文件
 
 ---
 
+<a id="-skiprun--sr"></a>
+
 ### -skiprun （简写：-sr）
 
 跳过 `run` 和 `minimize` 命令中的实际循环。用于快速测试输入脚本的语法和结构。
@@ -292,6 +294,8 @@ fix 1 all nvt temp ${t} ${t} 100.0
 **编者注：** 这意味着 LAMMPS 可以直接读写压缩的 data 文件、dump 文件和 restart 文件。例如 `read_data system.data.gz` 是合法命令。
 
 ---
+
+<a id="已安装的-packages"></a>
 
 ## 已安装的 Packages
 

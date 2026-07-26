@@ -225,5 +225,5 @@ EMC Setup 生成的 LAMMPS 输入脚本通常包含完整的 NVT 平衡部分。
 - [最小化](minimization.md)
 - [NPT 平衡](npt.md)
 - [升温流程](heating.md)
-- [退火流程](annealing.md)
+- [加热与退火](heating.md)
 - [生产模拟](production.md)
