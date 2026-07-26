@@ -1,0 +1,3218 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="EMC 与 LAMMPS 安装、命令、语法、建模、模拟与排错">
+      
+      
+        <meta name="author" content="非官方中文翻译与注释版">
+      
+      
+      
+        <link rel="prev" href="../../../05_force_fields/emc_force_field_inventory/">
+      
+      
+        <link rel="next" href="../../input_scripts/input_script_syntax/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>CLI 参数 - EMC 与 LAMMPS 中文百科全书</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lammps" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="EMC 与 LAMMPS 中文百科全书" class="md-header__button md-logo" aria-label="EMC 与 LAMMPS 中文百科全书" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EMC 与 LAMMPS 中文百科全书
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CLI 参数
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="EMC 与 LAMMPS 中文百科全书" class="md-nav__button md-logo" aria-label="EMC 与 LAMMPS 中文百科全书" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    EMC 与 LAMMPS 中文百科全书
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    导航
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    导航
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_navigation/how_to_use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    如何使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_navigation/task_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    任务索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_navigation/command_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    命令索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_navigation/keyword_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关键字索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_navigation/error_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    错误索引
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EMC 官方手册
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EMC 官方手册
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_emc_official_translation/emc_ch1_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第1章 引言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_emc_official_translation/emc_ch2_methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第2章 方法论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_emc_official_translation/emc_ch3_program_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第3章 程序结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_emc_official_translation/emc_ch4_simulation_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第4章 模拟设置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_emc_official_translation/emc_ch5_workflow_agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第5章 工作流代理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01_emc_official_translation/emc_ch6_scripting_commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    第6章 脚本命令
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EMC Setup
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EMC Setup
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_emc_setup_reference/setup_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup 总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_emc_setup_reference/setup_cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI 参考
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EMC 命令
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EMC 命令
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03_emc_command_reference/emc_cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主程序 CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EMC 建模
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EMC 建模
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04_emc_modeling/molecules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    小分子
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04_emc_modeling/homopolymers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    均聚物
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    力场
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    力场
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05_force_fields/fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    力场基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../05_force_fields/emc_force_field_inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    力场清单
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAMMPS 用户指南
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LAMMPS 用户指南
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI 参数
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI 参数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本用法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整命令行参数列表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="完整命令行参数列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-echo-nonescreenlogboth-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -echo none/screen/log/both （简写：-e）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-help-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -help （简写：-h）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-in-nonefilename-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -in none/filename （简写：-i）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-kokkos-onoff-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -kokkos on/off ... （简写：-k）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-log-nonefilename-l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -log none/filename （简写：-l）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mdi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -mdi ''
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mpicolor-color-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -mpicolor color （简写：-m）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cite-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -cite （简写：-c）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-nocite-nc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -nocite （简写：-nc）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-nonbuf-nb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -nonbuf （简写：-nb）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-package-style-pk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -package style ... （简写：-pk）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-partition-size1-size2-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -partition size1 size2 ... （简写：-p）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-plog-basename-pl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -plog basename （简写：-pl）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-pscreen-basename-ps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -pscreen basename （简写：-ps）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-restart2data-rfile-dfile-r2data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -restart2data rfile dfile ... （简写：-r2data）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-restart2dump-rfile-dgroup-dstyle-dfile-r2dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -restart2dump rfile dgroup dstyle dfile ... （简写：-r2dump）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-restart2info-rfile-r2info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -restart2info rfile （简写：-r2info）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-reorder-topology-specs-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -reorder topology-specs （简写：-r）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-screen-nonefilename-sc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -screen none/filename （简写：-sc）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-skiprun-sr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -skiprun （简写：-sr）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-suffix-gpuintelkkoptomp-sf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -suffix gpu/intel/kk/opt/omp （简写：-sf）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-var-varname-value-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -var varname value （简写：-v）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本机编译配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="本机编译配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编译时标志
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        支持的压缩格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        已安装的 Packages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        典型用法示例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="典型用法示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本串行运行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 参数化运行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 调试模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-restart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Restart 转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. MPI 并行运行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 带优化后缀
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见错误
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        验证状态
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../input_scripts/input_script_syntax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    输入脚本语法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAMMPS 命令
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LAMMPS 命令
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../07_lammps_command_reference/initialization/velocity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    velocity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../07_lammps_command_reference/dumps/dump/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    dump
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../07_lammps_command_reference/computes/thermo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    thermo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../07_lammps_command_reference/fixes/fix_shake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    fix shake
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LAMMPS 文件格式
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    LAMMPS 文件格式
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../08_lammps_file_formats/data_file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    data 文件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EMC→LAMMPS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EMC→LAMMPS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../09_emc_to_lammps/complete_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    完整工作流
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../09_emc_to_lammps/units_mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    单位映射
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../09_emc_to_lammps/style_mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Style 映射
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模拟流程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    模拟流程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_simulation_workflows/minimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    最小化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_simulation_workflows/heating/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    加热与退火
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_simulation_workflows/nvt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NVT 平衡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_simulation_workflows/npt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NPT 生产
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_simulation_workflows/production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    生产与续算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本用法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整命令行参数列表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="完整命令行参数列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-echo-nonescreenlogboth-e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -echo none/screen/log/both （简写：-e）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-help-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -help （简写：-h）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-in-nonefilename-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -in none/filename （简写：-i）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-kokkos-onoff-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -kokkos on/off ... （简写：-k）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-log-nonefilename-l" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -log none/filename （简写：-l）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mdi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -mdi ''
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-mpicolor-color-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -mpicolor color （简写：-m）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-cite-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -cite （简写：-c）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-nocite-nc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -nocite （简写：-nc）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-nonbuf-nb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -nonbuf （简写：-nb）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-package-style-pk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -package style ... （简写：-pk）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-partition-size1-size2-p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -partition size1 size2 ... （简写：-p）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-plog-basename-pl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -plog basename （简写：-pl）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-pscreen-basename-ps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -pscreen basename （简写：-ps）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-restart2data-rfile-dfile-r2data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -restart2data rfile dfile ... （简写：-r2data）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-restart2dump-rfile-dgroup-dstyle-dfile-r2dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -restart2dump rfile dgroup dstyle dfile ... （简写：-r2dump）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-restart2info-rfile-r2info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -restart2info rfile （简写：-r2info）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-reorder-topology-specs-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -reorder topology-specs （简写：-r）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-screen-nonefilename-sc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -screen none/filename （简写：-sc）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-skiprun-sr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -skiprun （简写：-sr）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-suffix-gpuintelkkoptomp-sf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -suffix gpu/intel/kk/opt/omp （简写：-sf）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-var-varname-value-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        -var varname value （简写：-v）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本机编译配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="本机编译配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编译时标志
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        支持的压缩格式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        已安装的 Packages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        典型用法示例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="典型用法示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 基本串行运行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 参数化运行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 调试模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-restart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Restart 转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. MPI 并行运行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 带优化后缀
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见错误
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        验证状态
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lammps">LAMMPS 命令行参数完整参考</h1>
+<ul>
+<li><strong>适用版本：</strong> LAMMPS 22 Jul 2025 - Update 4</li>
+<li><strong>官方来源：</strong> <a href="https://docs.lammps.org/Run_options.html">LAMMPS Run Options</a></li>
+<li><strong>本机验证：</strong> ✅ 通过 <code>lmp_serial -h</code> 验证</li>
+<li><strong>翻译状态：</strong> 完整翻译</li>
+</ul>
+<hr />
+<h2 id="_1">基本用法</h2>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-var<span class="w"> </span>t<span class="w"> </span><span class="m">300</span><span class="w"> </span>-echo<span class="w"> </span>screen<span class="w"> </span>-in<span class="w"> </span><span class="k">in</span>.alloy
+</code></pre></div>
+<h2 id="_2">完整命令行参数列表</h2>
+<h3 id="-echo-nonescreenlogboth-e">-echo none/screen/log/both （简写：-e）</h3>
+<p>控制输入脚本的回显方式。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>none</code></td>
+<td>不回显任何输入命令</td>
+</tr>
+<tr>
+<td><code>screen</code></td>
+<td>将输入命令输出到屏幕</td>
+</tr>
+<tr>
+<td><code>log</code></td>
+<td>将输入命令输出到日志文件</td>
+</tr>
+<tr>
+<td><code>both</code></td>
+<td>同时输出到屏幕和日志文件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>编者注：</strong> 调试时建议使用 <code>-echo screen</code>，这样可以在终端直接看到每条输入命令的执行。生产运行时建议使用 <code>-echo log</code> 或 <code>-echo none</code> 以减少屏幕输出。</p>
+<hr />
+<h3 id="-help-h">-help （简写：-h）</h3>
+<p>打印帮助信息，列出所有可用的命令行选项。</p>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-h
+</code></pre></div>
+<p>输出包含当前版本号、编译配置、已安装的 packages 以及所有可用的 style 列表。</p>
+<hr />
+<h3 id="-in-nonefilename-i">-in none/filename （简写：-i）</h3>
+<p>指定输入脚本文件。如果设为 <code>none</code>，LAMMPS 从标准输入读取。</p>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-in<span class="w"> </span>my_script.in<span class="w">       </span><span class="c1"># 从文件读取</span>
+lmp_serial<span class="w"> </span>-in<span class="w"> </span>none<span class="w">               </span><span class="c1"># 从标准输入读取</span>
+</code></pre></div>
+<p><strong>编者注：</strong> 这是最常用的命令行参数。输入脚本文件通常以 <code>.in</code>、<code>.input</code> 或 <code>.lmp</code> 为后缀，但没有强制要求。</p>
+<hr />
+<h3 id="-kokkos-onoff-k">-kokkos on/off ... （简写：-k）</h3>
+<p>开启或关闭 KOKKOS 加速模式及设置选项。</p>
+<p><strong>编者注：</strong> KOKKOS 是一个性能可移植框架，支持 GPU 加速（CUDA、HIP、SYCL）和多线程（OpenMP、Pthreads）。Homebrew 安装的 LAMMPS 版本未启用 KOKKOS。</p>
+<hr />
+<h3 id="-log-nonefilename-l">-log none/filename （简写：-l）</h3>
+<p>指定日志输出文件。默认日志文件名为 <code>log.lammps</code>。设为 <code>none</code> 则不写日志文件。</p>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-log<span class="w"> </span>my_sim.log<span class="w">        </span><span class="c1"># 写入 my_sim.log</span>
+lmp_serial<span class="w"> </span>-log<span class="w"> </span>none<span class="w">              </span><span class="c1"># 不写日志文件</span>
+</code></pre></div>
+<p><strong>警告：</strong> 如果已有同名日志文件，LAMMPS 会追加而不是覆盖。</p>
+<hr />
+<h3 id="-mdi">-mdi '<mdi flags>'</h3>
+<p>传递 MolSSI Driver Interface (MDI) 标志。MDI 允许 LAMMPS 与其他模拟代码耦合运行。</p>
+<p><strong>编者注：</strong> MDI 是一个标准化的代码耦合接口，由 MolSSI（Molecular Sciences Software Institute）开发。用于 QM/MM 等多尺度模拟场景。</p>
+<hr />
+<h3 id="-mpicolor-color-m">-mpicolor color （简写：-m）</h3>
+<p>在多可执行文件 MPI 运行中，为每个 LAMMPS 实例分配颜色值。用于 <code>mpirun</code> 启动多个 LAMMPS 实例进行耦合计算。</p>
+<hr />
+<h3 id="-cite-c">-cite （简写：-c）</h3>
+<p>选择引用提醒样式。LAMMPS 在运行结束时输出相关论文引用提醒。</p>
+<hr />
+<h3 id="-nocite-nc">-nocite （简写：-nc）</h3>
+<p>禁用引用提醒。</p>
+<hr />
+<h3 id="-nonbuf-nb">-nonbuf （简写：-nb）</h3>
+<p>禁用屏幕和日志文件输出缓冲。用于实时查看输出。</p>
+<p><strong>编者注：</strong> 在某些系统上，标准输出可能被缓冲，导致不能实时看到模拟进展。使用此选项可强制立即输出每一行。</p>
+<hr />
+<h3 id="-package-style-pk">-package style ... （简写：-pk）</h3>
+<p>调用 package 命令。用于在启动时设置特定 package 的选项。</p>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-package<span class="w"> </span>gpu<span class="w"> </span><span class="m">1</span><span class="w">         </span><span class="c1"># 使用 GPU package</span>
+</code></pre></div>
+<hr />
+<h3 id="-partition-size1-size2-p">-partition size1 size2 ... （简写：-p）</h3>
+<p>分配分区大小。多个数字表示将处理器分成多个分区，每个分区独立运行相同的输入脚本。</p>
+<div class="highlight"><pre><span></span><code>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">16</span><span class="w"> </span>lmp_mpi<span class="w"> </span>-partition<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>-in<span class="w"> </span><span class="k">in</span>.file
+<span class="c1"># 创建3个分区：8核、4核、4核，各运行独立的 in.file</span>
+</code></pre></div>
+<p><strong>版本说明：</strong> 分区功能主要用于 replica exchange 等多副本模拟方法。</p>
+<hr />
+<h3 id="-plog-basename-pl">-plog basename （简写：-pl）</h3>
+<p>为每个分区指定日志文件基名。第 N 个分区的日志文件名为 <code>basename.N</code>。</p>
+<hr />
+<h3 id="-pscreen-basename-ps">-pscreen basename （简写：-ps）</h3>
+<p>为每个分区指定屏幕输出基名。第 N 个分区的屏幕输出文件名为 <code>basename.N</code>。</p>
+<hr />
+<h3 id="-restart2data-rfile-dfile-r2data">-restart2data rfile dfile ... （简写：-r2data）</h3>
+<p>将 restart 文件转换为 data 文件。</p>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-restart2data<span class="w"> </span>restart.save<span class="w"> </span>my_data.data
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rfile</code></td>
+<td>输入的 restart 文件</td>
+</tr>
+<tr>
+<td><code>dfile</code></td>
+<td>输出的 data 文件</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="-restart2dump-rfile-dgroup-dstyle-dfile-r2dump">-restart2dump rfile dgroup dstyle dfile ... （简写：-r2dump）</h3>
+<p>将 restart 文件转换为 dump 文件。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rfile</code></td>
+<td>输入的 restart 文件</td>
+</tr>
+<tr>
+<td><code>dgroup</code></td>
+<td>dump 的原子组</td>
+</tr>
+<tr>
+<td><code>dstyle</code></td>
+<td>dump 样式（如 atom, custom）</td>
+</tr>
+<tr>
+<td><code>dfile</code></td>
+<td>输出的 dump 文件</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="-restart2info-rfile-r2info">-restart2info rfile （简写：-r2info）</h3>
+<p>打印 restart 文件的信息（时间步、原子数、box 大小等）。</p>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-restart2info<span class="w"> </span>restart.save
+</code></pre></div>
+<hr />
+<h3 id="-reorder-topology-specs-r">-reorder topology-specs （简写：-r）</h3>
+<p>处理器重排序，用于优化并行通信效率。拓扑规范定义如何将 MPI 进程映射到物理处理器核心。</p>
+<hr />
+<h3 id="-screen-nonefilename-sc">-screen none/filename （简写：-sc）</h3>
+<p>指定屏幕输出文件。默认输出到终端屏幕。设为 <code>none</code> 则不输出到屏幕。</p>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-screen<span class="w"> </span>sim_output.txt<span class="w">  </span><span class="c1"># 屏幕输出写入文件</span>
+</code></pre></div>
+<p><strong>编者注：</strong> 与 <code>-log</code> 的区别：<code>-screen</code> 控制的是「屏幕输出通道」（包括 thermo 输出、print 命令等），<code>-log</code> 控制的是「日志文件通道」。两者可以独立设置。</p>
+<hr />
+<h3 id="-skiprun-sr">-skiprun （简写：-sr）</h3>
+<p>跳过 <code>run</code> 和 <code>minimize</code> 命令中的实际循环。用于快速测试输入脚本的语法和结构。</p>
+<p><strong>编者注：</strong> 这是调试新输入脚本的宝贵选项。开启后 LAMMPS 会解析整个输入脚本、设置模拟体系，但不实际进行耗时的力计算和时间积分。也称为 "run 0" 测试。</p>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-skiprun<span class="w"> </span>-in<span class="w"> </span>test.in<span class="w">   </span><span class="c1"># 只检查脚本，不真正运行</span>
+</code></pre></div>
+<hr />
+<h3 id="-suffix-gpuintelkkoptomp-sf">-suffix gpu/intel/kk/opt/omp （简写：-sf）</h3>
+<p>为所有适用的命令自动添加样式后缀。例如 <code>-suffix opt</code> 会让 LAMMPS 自动选择优化版本的 pair style。</p>
+<table>
+<thead>
+<tr>
+<th>后缀</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gpu</code></td>
+<td>GPU 加速</td>
+</tr>
+<tr>
+<td><code>intel</code></td>
+<td>Intel 优化包</td>
+</tr>
+<tr>
+<td><code>kk</code></td>
+<td>KOKKOS 包</td>
+</tr>
+<tr>
+<td><code>opt</code></td>
+<td>通用优化版本</td>
+</tr>
+<tr>
+<td><code>omp</code></td>
+<td>OpenMP 多线程版本</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-suffix<span class="w"> </span>opt<span class="w"> </span>-in<span class="w"> </span><span class="k">in</span>.file
+</code></pre></div>
+<p><strong>编者注：</strong> Homebrew 安装的 LAMMPS 包含 <code>OPENMP</code> 和 <code>OPT</code> 包，可以使用 <code>-suffix omp</code> 和 <code>-suffix opt</code>。</p>
+<hr />
+<h3 id="-var-varname-value-v">-var varname value （简写：-v）</h3>
+<p>设置输入脚本中的 index 类型变量。</p>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-var<span class="w"> </span>t<span class="w"> </span><span class="m">300</span><span class="w"> </span>-var<span class="w"> </span>p<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span>-in<span class="w"> </span>npt.in
+</code></pre></div>
+<p>在输入脚本中使用：</p>
+<div class="highlight"><pre><span></span><code>variable t index 300     # 默认值
+# 如果命令行指定了 -var t 500，则使用 500
+
+fix 1 all nvt temp ${t} ${t} 100.0
+</code></pre></div>
+<p><strong>编者注：</strong> 这是参数化模拟的关键功能。可以用一个输入脚本配合不同的 <code>-var</code> 参数运行多个模拟，无需修改输入文件。</p>
+<hr />
+<h2 id="_3">本机编译配置</h2>
+<p>本机 LAMMPS 版本编译信息：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作系统</td>
+<td>Darwin 24.6.0 arm64</td>
+</tr>
+<tr>
+<td>编译器</td>
+<td>Clang C++ Apple LLVM 17.0.0</td>
+</tr>
+<tr>
+<td>C++ 标准</td>
+<td>C++17</td>
+</tr>
+<tr>
+<td>OpenMP</td>
+<td>未启用（API: Serial）</td>
+</tr>
+<tr>
+<td>FFT 精度</td>
+<td>double</td>
+</tr>
+<tr>
+<td>FFT 引擎</td>
+<td>mpiFFT (FFTW3 with threads)</td>
+</tr>
+<tr>
+<td>MPI</td>
+<td>LAMMPS MPI STUBS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">编译时标志</h3>
+<table>
+<thead>
+<tr>
+<th>标志</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LAMMPS_GZIP</code></td>
+<td>支持 gzip 压缩文件读写</td>
+</tr>
+<tr>
+<td><code>LAMMPS_PNG</code></td>
+<td>支持 PNG 图像输出</td>
+</tr>
+<tr>
+<td><code>LAMMPS_JPEG</code></td>
+<td>支持 JPEG 图像输出</td>
+</tr>
+<tr>
+<td><code>LAMMPS_CURL</code></td>
+<td>支持从 URL 读取文件</td>
+</tr>
+<tr>
+<td><code>LAMMPS_SMALLBIG</code></td>
+<td>32-bit smallint, 32-bit imageint, 32-bit tagint, 64-bit bigint</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">支持的压缩格式</h3>
+<table>
+<thead>
+<tr>
+<th>扩展名</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.gz</code></td>
+<td>gzip</td>
+</tr>
+<tr>
+<td><code>.bz2</code></td>
+<td>bzip2</td>
+</tr>
+<tr>
+<td><code>.zst</code></td>
+<td>zstd</td>
+</tr>
+<tr>
+<td><code>.xz</code></td>
+<td>xz</td>
+</tr>
+<tr>
+<td><code>.lzma</code></td>
+<td>xz</td>
+</tr>
+<tr>
+<td><code>.lz4</code></td>
+<td>lz4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>编者注：</strong> 这意味着 LAMMPS 可以直接读写压缩的 data 文件、dump 文件和 restart 文件。例如 <code>read_data system.data.gz</code> 是合法命令。</p>
+<hr />
+<h2 id="packages">已安装的 Packages</h2>
+<p>本机 LAMMPS 版本共安装了以下 <strong>75 个 packages</strong>（完整列表来自 <code>lmp_serial -h</code>）：</p>
+<p><strong>核心物理包：</strong> AMOEBA, ASPHERE, BOCS, BODY, BPM, BROWNIAN, CG-DNA, CG-SPICA, CLASS2, COLLOID, COLVARS, CORESHELL, DIELECTRIC, DIFFRACTION, DIPOLE, DPD-BASIC, DPD-MESO, DPD-REACT, DPD-SMOOTH, DRUDE, EFF, EXTRA-COMMAND, EXTRA-COMPUTE, EXTRA-DUMP, EXTRA-FIX, EXTRA-MOLECULE, EXTRA-PAIR, FEP, GRANULAR, INTERLAYER, KIM, KSPACE, MANIFOLD, MANYBODY, MC, MEAM, MESONT, MGPT, MISC, ML-IAP, ML-POD, ML-RANN, ML-SNAP, ML-UF3, MOFFF, MOLECULE, OPENMP, OPT, ORIENT, PERI, PHONON, PLUGIN, POEMS, PTM, QEQ, QTB, REACTION, REAXFF, REPLICA, RHEO, RIGID, SHOCK, SMTBQ, SPH, SPIN, SRD, TALLY, UEF, VORONOI, YAFF</p>
+<hr />
+<h2 id="_6">典型用法示例</h2>
+<h3 id="1">1. 基本串行运行</h3>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-in<span class="w"> </span>input.in<span class="w"> </span>-log<span class="w"> </span>run.log
+</code></pre></div>
+<h3 id="2">2. 参数化运行</h3>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-var<span class="w"> </span>temp<span class="w"> </span><span class="m">300</span><span class="w"> </span>-var<span class="w"> </span>press<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span>-in<span class="w"> </span>npt.in
+</code></pre></div>
+<h3 id="3">3. 调试模式</h3>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-skiprun<span class="w"> </span>-echo<span class="w"> </span>screen<span class="w"> </span>-in<span class="w"> </span>new_input.in
+</code></pre></div>
+<h3 id="4-restart">4. Restart 转换</h3>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-restart2data<span class="w"> </span>restart.100000<span class="w"> </span>system.data
+lmp_serial<span class="w"> </span>-restart2info<span class="w"> </span>restart.100000
+</code></pre></div>
+<h3 id="5-mpi">5. MPI 并行运行</h3>
+<div class="highlight"><pre><span></span><code>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">8</span><span class="w"> </span>lmp_mpi<span class="w"> </span>-in<span class="w"> </span>input.in<span class="w"> </span>-log<span class="w"> </span>run.log
+</code></pre></div>
+<h3 id="6">6. 带优化后缀</h3>
+<div class="highlight"><pre><span></span><code>lmp_serial<span class="w"> </span>-suffix<span class="w"> </span>opt<span class="w"> </span>-in<span class="w"> </span>input.in
+</code></pre></div>
+<hr />
+<h2 id="_7">常见错误</h2>
+<table>
+<thead>
+<tr>
+<th>错误信息</th>
+<th>原因</th>
+<th>解决方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ERROR: Cannot open input script</code></td>
+<td>输入文件不存在或路径错误</td>
+<td>检查文件路径</td>
+</tr>
+<tr>
+<td><code>ERROR: Variable does not exist</code></td>
+<td>引用了未定义的变量</td>
+<td>用 <code>-var</code> 定义或检查变量名</td>
+</tr>
+<tr>
+<td><code>ERROR: Unknown command</code></td>
+<td>输入脚本中有拼写错误或缺少 package</td>
+<td>检查命令拼写，确认 package 已安装</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_8">验证状态</h2>
+<ul>
+<li>✅ 官方翻译（基于 <code>lmp_serial -h</code> 和官方文档）</li>
+<li>✅ 本机静态检查</li>
+<li>⬜ 本机实际运行</li>
+<li>⬜ 尚未验证</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.tracking", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

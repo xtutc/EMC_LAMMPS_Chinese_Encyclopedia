@@ -1,0 +1,64 @@
+site_name: EMC 与 LAMMPS 中文百科全书
+site_description: EMC 与 LAMMPS 安装、命令、语法、建模、模拟与排错
+site_author: 非官方中文翻译与注释版
+docs_dir: docs
+site_dir: build/site
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.indexes
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+nav:
+  - 首页: index.md
+  - 导航:
+      - 如何使用: 00_navigation/how_to_use.md
+      - 任务索引: 00_navigation/task_index.md
+      - 命令索引: 00_navigation/command_index.md
+      - 关键字索引: 00_navigation/keyword_index.md
+      - 错误索引: 00_navigation/error_index.md
+  - EMC 官方手册:
+      - 第1章 引言: 01_emc_official_translation/emc_ch1_introduction.md
+      - 第2章 方法论: 01_emc_official_translation/emc_ch2_methodology.md
+      - 第3章 程序结构: 01_emc_official_translation/emc_ch3_program_structure.md
+      - 第4章 模拟设置: 01_emc_official_translation/emc_ch4_simulation_setup.md
+      - 第5章 工作流代理: 01_emc_official_translation/emc_ch5_workflow_agent.md
+      - 第6章 脚本命令: 01_emc_official_translation/emc_ch6_scripting_commands.md
+  - EMC Setup:
+      - Setup 总览: 02_emc_setup_reference/setup_overview.md
+      - CLI 参考: 02_emc_setup_reference/setup_cli.md
+  - EMC 命令:
+      - 主程序 CLI: 03_emc_command_reference/emc_cli.md
+  - EMC 建模:
+      - 小分子: 04_emc_modeling/molecules.md
+      - 均聚物: 04_emc_modeling/homopolymers.md
+  - 力场:
+      - 力场基础: 05_force_fields/fundamentals.md
+      - 力场清单: 05_force_fields/emc_force_field_inventory.md
+  - LAMMPS 用户指南:
+      - CLI 参数: 06_lammps_user_guide_translation/running/lammps_cli_options.md
+      - 输入脚本语法: 06_lammps_user_guide_translation/input_scripts/input_script_syntax.md
+  - LAMMPS 命令:
+      - velocity: 07_lammps_command_reference/initialization/velocity.md
+      - dump: 07_lammps_command_reference/dumps/dump.md
+      - thermo: 07_lammps_command_reference/computes/thermo.md
+      - fix shake: 07_lammps_command_reference/fixes/fix_shake.md
+  - LAMMPS 文件格式:
+      - data 文件: 08_lammps_file_formats/data_file.md
+  - EMC→LAMMPS:
+      - 完整工作流: 09_emc_to_lammps/complete_workflow.md
+      - 单位映射: 09_emc_to_lammps/units_mapping.md
+      - Style 映射: 09_emc_to_lammps/style_mapping.md
+  - 模拟流程:
+      - 最小化: 10_simulation_workflows/minimization.md
+      - 加热与退火: 10_simulation_workflows/heating.md
+      - NVT 平衡: 10_simulation_workflows/nvt.md
+      - NPT 生产: 10_simulation_workflows/npt.md
+      - 生产与续算: 10_simulation_workflows/production.md
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
+  - tables

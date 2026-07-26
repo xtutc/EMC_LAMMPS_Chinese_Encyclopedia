@@ -1,0 +1,33 @@
+type,name,version,path_on_server,url,status,notes
+binary,emc,9.4.4,/opt/emc-9.4.4/bin/emc_linux_x86_64,https://montecarlo.sourceforge.net/,installed,valid until Jul 1 2027
+binary,lammps,7 Feb 2024 Update 1,/usr/bin/lmp,https://docs.lammps.org/,installed,Ubuntu x86_64
+script,emc_setup,5.3,/opt/emc-9.4.4/scripts/emc.pl,https://montecarlo.sourceforge.net/emc/Welcome.html,installed,Perl script
+script,emc_setup_legacy,4.1.5,/opt/emc-9.4.4/scripts/emc_setup.pl,,installed,deprecated
+manual,emc_pdf,,/opt/emc-9.4.4/docs/emc.pdf,https://montecarlo.sourceforge.net/emc/Welcome.html,to_download,Main EMC manual
+field,opls_aa,,/opt/emc-9.4.4/field/opls/,,installed,.top + .prm files
+field,opls_ua,,/opt/emc-9.4.4/field/opls/,,installed,.top + .prm files
+field,charmm_c36a,,/opt/emc-9.4.4/field/charmm/c36a/,,installed,.top + .prm files
+field,charmm_c32b,,/opt/emc-9.4.4/field/charmm/c32b/,,installed,.top + .prm files
+field,cgenff,,/opt/emc-9.4.4/field/charmm/c36a/cgenff/,,installed,CHARMM general FF
+field,pcff,,/opt/emc-9.4.4/field/pcff/,,installed,.top + .prm files
+field,compass,,/opt/emc-9.4.4/field/compass/,,installed,.top + .prm files
+field,trappe,,/opt/emc-9.4.4/field/trappe/,,installed,.top + .prm files
+field,born,,/opt/emc-9.4.4/field/born/,,installed,.top + .prm files
+field,dpd,,/opt/emc-9.4.4/field/dpd/,,installed,.top + .prm files
+field,martini,,/opt/emc-9.4.4/field/martini/,,installed,MARTINI2 + MARTINI3
+field,sdk,,/opt/emc-9.4.4/field/sdk/,,installed,.top + .prm files
+example,setup_chemistry,,/opt/emc-9.4.4/examples/setup/chemistry/,,to_explore,bulk, polymer, surface, multiphase
+example,setup_environment,,/opt/emc-9.4.4/examples/setup/environment/,,to_explore,shear, t_glass
+example,user_water_ethanol,,/home/lyd/emc-examples/simple-water-ethanol/,,has_logs,User verified
+example,user_bulk_mixture,,/home/lyd/emc-examples/bulk-mixture/,,has_logs,User verified
+example,user_lj_fluid,,/home/lyd/lammps-learn/LJ-fluid/,,has_output,User LAMMPS learning
+script,emc_opls,,/opt/emc-9.4.4/scripts/emc_opls.pl,,installed,OPLS typing
+script,emc_trappe,,/opt/emc-9.4.4/scripts/emc_trappe.pl,,installed,TraPPE typing
+script,emc2lammps,,/opt/emc-9.4.4/scripts/emc2lammps.emc,,installed,EMC to LAMMPS conversion
+online,emc_welcome,,,https://montecarlo.sourceforge.net/emc/Welcome.html,fetched,
+online,emc_features,,,https://montecarlo.sourceforge.net/emc/Features.html,fetched,
+online,lammps_docs,,,https://docs.lammps.org/,to_fetch,Main LAMMPS documentation
+online,lammps_commands_input,,,https://docs.lammps.org/Commands_input.html,referenced,
+online,lammps_commands_parse,,,https://docs.lammps.org/Commands_parse.html,referenced,
+online,lammps_commands_structure,,,https://docs.lammps.org/Commands_structure.html,referenced,
+online,lammps_run_options,,,https://docs.lammps.org/Run_options.html,referenced,

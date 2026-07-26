@@ -1,0 +1,65 @@
+Keyword,Category,ManualSection,Description,TranslationStatus
+ITEM MOLECULE,Setup Block,4.5.2,分子定义区块,待翻译
+ITEM GROUP,Setup Block,4.5.2,组定义区块,待翻译
+ITEM CLUSTER,Setup Block,4.5.2,簇定义区块,待翻译
+ITEM POLYMER,Setup Block,4.5.2,聚合物定义区块,待翻译
+ITEM OPTIONS,Setup Block,4.5.2,全局选项区块,待翻译
+ITEM END,Setup Block,4.5.2,结束定义,待翻译
+ITEM TEMPLATE,Workflow Block,5.7,模板定义,待翻译
+ITEM ENVIRONMENT,Workflow Block,5.6.1,环境配置,待翻译
+ITEM LAMMPS,Workflow Block,5.7.3,LAMMPS设置,待翻译
+build,Scripting Command,6.1,构建体系,待翻译
+cancel,Scripting Command,6.2,取消操作,待翻译
+carve,Scripting Command,6.3,雕刻/裁剪,待翻译
+clusters,Scripting Command,6.4,簇操作,待翻译
+crystal,Scripting Command,6.5,晶体构建,待翻译
+cut,Scripting Command,6.6,截断函数,待翻译
+deform,Scripting Command,6.7,变形,待翻译
+delete,Scripting Command,6.8,删除,待翻译
+duplicate,Scripting Command,6.9,复制,待翻译
+export,Scripting Command,6.10,导出,待翻译
+field,Scripting Command,6.11,力场,待翻译
+flag,Scripting Command,6.12,标志,待翻译
+focus,Scripting Command,6.13,聚焦,待翻译
+force,Scripting Command,6.14,力计算,待翻译
+former,Scripting Command,6.15,前体,待翻译
+get,Scripting Command,6.16,获取数据,待翻译
+groups,Scripting Command,6.17,组操作,待翻译
+insight,Scripting Command,6.18,Insight格式,待翻译
+lammps,Scripting Command,6.19,LAMMPS脚本生成,待翻译
+memory,Scripting Command,6.20,内存管理,待翻译
+message,Scripting Command,6.21,消息,待翻译
+moves,Scripting Command,6.22,MC移动,待翻译
+pdb,Scripting Command,6.23,PDB输出,待翻译
+put,Scripting Command,6.24,放置,待翻译
+rename,Scripting Command,6.25,重命名,待翻译
+remove,Scripting Command,6.26,移除,待翻译
+reset,Scripting Command,6.27,重置,待翻译
+restart,Scripting Command,6.28,重启文件,待翻译
+retype,Scripting Command,6.29,重新typing,待翻译
+run,Scripting Command,6.30,运行MC,待翻译
+sample,Scripting Command,6.31,采样,待翻译
+shell,Scripting Command,6.32,Shell命令,待翻译
+sites,Scripting Command,6.33,位点操作,待翻译
+simulation,Scripting Command,6.34,模拟控制,待翻译
+split,Scripting Command,6.35,分割,待翻译
+terminate,Scripting Command,6.36,终止,待翻译
+timing,Scripting Command,6.37,计时,待翻译
+traject,Scripting Command,6.38,轨迹,待翻译
+translate,Scripting Command,6.39,平移,待翻译
+types,Scripting Command,6.40,类型操作,待翻译
+variables,Scripting Command,6.41,变量,待翻译
+xyz,Scripting Command,6.42,XYZ输出,待翻译
+bond,Sampling Tool,7.1,键分析,待翻译
+cavity,Sampling Tool,7.2,CESA空腔分析,待翻译
+gr,Sampling Tool,7.3,对关联函数g(r),待翻译
+gyration,Sampling Tool,7.4,回转半径,待翻译
+interaction,Sampling Tool,7.5,相互作用分析,待翻译
+profiles,Sampling Tool,7.6,分布分析,待翻译
+constants,Variable,8.1,物理常数,待翻译
+system_flags,Variable,8.2,系统标志,待翻译
+focus_var,Variable,8.3,聚焦变量,待翻译
+moves_var,Variable,8.4,MC移动变量,待翻译
+units,Variable,8.13,单位,待翻译
+vector,Variable,8.14,矢量运算,待翻译
+voigt,Variable,8.15,Voigt记号,待翻译
