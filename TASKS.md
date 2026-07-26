@@ -739,16 +739,17 @@ python3 scripts/check_status.py
 
 - **实现日期：** 2026-07-27
 - **修改文件：** `STATUS.md`、`TASKS.md`、`CHANGELOG.md`
-- **实现内容：** 将模块表中 01、04、05、07、09、10 的计数更新为 `check_status.py` 的实际统计；明确 01 模块的 3 章完整翻译、3 章概览翻译和 1 个 index；将第 4–6 章在页面清单中标记为“概览翻译，部分完成”；将 `docs/` 页面数更新为 38，并统一字数估计为约 60,000 中文字。页面清单现在列出 30 个模块页面及 8 个站点入口/导航页面，合计 38 个 `docs/` Markdown 文件。服务器验证环境与 macOS 本机环境分开表述，并更新阶段 1 执行计划。
+- **实现内容：** 将模块表中 01、04、05、07、09、10 的计数更新为 `check_status.py` 的实际统计；明确 01 模块的 3 章完整翻译、3 章概览翻译和 1 个 index；将第 4–6 章在页面清单中标记为“概览翻译，部分完成”；将 `docs/` 页面数更新为 38，并统一字数估计为约 65,000+ 中文字。页面清单现在列出 30 个模块页面及 8 个站点入口/导航页面，合计 38 个 `docs/` Markdown 文件。顶部仅记录服务器 LAMMPS 版本，EMC 9.4.4 的安装状态以 macOS 本机环境表“待安装”为准，并更新阶段 1 执行计划。
 - **实际验证命令与结果：**
   - `python3 scripts/check_status.py --strict && echo "PASS" || echo "FAIL"`：输出全部 11 个模块 `MATCH`、0 个 difference，并输出 `PASS`（退出码 0）。
   - `python3 -m mkdocs build --strict`：退出码 0，构建成功。
 - **未验证内容：** 无。
-- **Git commit：** 本任务提交（待 Claude Code 验收）。
+- **Git commit：** 本任务提交后补充。
 
 ### Claude Code 验收结果
 
-（由 Claude Code 填写）
+（由 Claude Code 填写。）
+
 
 ---
 
