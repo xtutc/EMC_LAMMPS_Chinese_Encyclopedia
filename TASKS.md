@@ -685,7 +685,7 @@ TASK-003 因缺失首页将 3 处链接标记为"待创建"。TASK-004 创建文
 
 ## TASK-005：修正 STATUS.md 以反映真实完成状态
 
-**状态：** 待实现
+**状态：** 等待验收
 **优先级：** P1
 **执行者：** Codex
 **依赖任务：** TASK-002（需要 check_status.py 提供准确统计）
@@ -742,7 +742,14 @@ python3 scripts/check_status.py
 
 ### Codex 实现记录
 
-（由 Codex 填写）
+- **实现日期：** 2026-07-27
+- **修改文件：** `STATUS.md`、`TASKS.md`、`CHANGELOG.md`
+- **实现内容：** 将模块表中 01、04、05、07、09、10 的计数更新为 `check_status.py` 的实际统计；明确 01 模块的 3 章完整翻译、3 章概览翻译和 1 个 index；将第 4–6 章在页面清单中标记为“概览翻译，部分完成”；将 `docs/` 页面数更新为 38，并统一字数估计为约 60,000 中文字。页面清单现在列出 30 个模块页面及 8 个站点入口/导航页面，合计 38 个 `docs/` Markdown 文件。服务器验证环境与 macOS 本机环境分开表述，并更新阶段 1 执行计划。
+- **实际验证命令与结果：**
+  - `python3 scripts/check_status.py --strict && echo "PASS" || echo "FAIL"`：输出全部 11 个模块 `MATCH`、0 个 difference，并输出 `PASS`（退出码 0）。
+  - `python3 -m mkdocs build --strict`：退出码 0，构建成功。
+- **未验证内容：** 无。
+- **Git commit：** 本任务提交（待 Claude Code 验收）。
 
 ### Claude Code 验收结果
 
