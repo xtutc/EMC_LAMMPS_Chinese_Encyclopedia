@@ -2,7 +2,8 @@
 
 * **命令类别：** 输出 (Output)
 * **所属 package：** 内置
-* **本机是否可用：** ✅
+* **命令可用性：** ✅（命令存在于本地 LAMMPS 安装中，`lmp_serial -h` 可列出）
+* **验证状态：** ⬜ 未运行（以下示例尚未在本地实际执行）
 * **官方链接：** [LAMMPS thermo](https://docs.lammps.org/thermo.html)
 
 ---
@@ -193,8 +194,6 @@ EMC Setup 的 `-dtthermo` 参数控制 thermo 输出频率。生成的脚本通�
 ## 验证状态
 
 * ✅ 官方翻译
-* ✅ 本机可用
-* ⬜ 实际运行验证
 
 ---
 

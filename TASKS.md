@@ -755,7 +755,7 @@ python3 scripts/check_status.py
 
 ## TASK-006：修正"本机验证"标记的自相矛盾
 
-**状态：** 待实现
+**状态：** 等待验收
 **优先级：** P1
 **执行者：** Codex
 **依赖任务：** 无
@@ -828,7 +828,17 @@ grep -rn "本机验证\|本机可用" docs/07_lammps_command_reference/ docs/03_
 
 ### Codex 实现记录
 
-（由 Codex 填写）
+- **实现日期：** 2026-07-27
+- **修改文件：** `docs/07_lammps_command_reference/initialization/velocity.md`、`docs/07_lammps_command_reference/fixes/fix_shake.md`、`docs/07_lammps_command_reference/computes/thermo.md`、`docs/07_lammps_command_reference/dumps/dump.md`、`docs/03_emc_command_reference/emc_cli.md`、`TASKS.md`、`CHANGELOG.md`
+- **实现内容：** 将四个 LAMMPS 页面中的“命令可用性”和“验证状态”分离：命令由本地 `lmp_serial -h` 可列出，但页面示例均标记为未运行。将 EMC CLI 的章节改为“运行环境说明”，明确 `/opt/emc-9.4.4/` 是服务器 Ubuntu 路径、本地 macOS EMC 待安装，并保留服务器 CLI 输出记录与本地未运行状态的区分。
+- **实际验证命令与结果：**
+  - `grep -rn "本机验证\\|本机可用\\|本机是否可用" docs/07_lammps_command_reference/ docs/03_emc_command_reference/ --include="*.md"`：无输出，退出码 `1`；旧的混合标记已移除。
+  - `grep -rn "✅.*未运行\\|⬜.*已验证" docs/07_lammps_command_reference/ docs/03_emc_command_reference/ --include="*.md" && echo "CONFLICT FOUND" || echo "OK"`：输出 `OK`，退出码 `0`；未发现同一行中的矛盾状态。
+  - `python3 scripts/check_links.py --strict`：退出码 `0`；检查 38 个 Markdown 文件，0 个错误、0 条信息。
+  - `python3 -m mkdocs build --strict`：退出码 `0`；文档构建完成（仅出现第三方 Material for MkDocs 的未来兼容性提示）。
+  - `git diff --check -- <TASK-006 修改文件>`：退出码 `0`；本任务修改未引入空白错误。
+- **未验证内容：** 此轮未在本地或服务器实际执行 LAMMPS/EMC 页面示例；文档只声明命令可发现性或服务器输出来源，不将其标记为本机运行验证。
+- **Git commit：** 当前任务提交（见 Git 历史）。
 
 ### Claude Code 验收结果
 

@@ -2,7 +2,8 @@
 
 * **命令类别：** 输出 (Output)
 * **所属 package：** 内置 (无)
-* **本机是否可用：** ✅
+* **命令可用性：** ✅（命令存在于本地 LAMMPS 安装中，`lmp_serial -h` 可列出）
+* **验证状态：** ⬜ 未运行（以下示例尚未在本地实际执行）
 * **官方链接：** [LAMMPS dump](https://docs.lammps.org/dump.html)
 
 ---
@@ -141,7 +142,7 @@ EMC 生成的 LAMMPS 输入脚本通常包含 dump 命令。Setup 的 `-dtdump` 
 
 ---
 
-## 本机可用 dump styles
+## 本地 LAMMPS 支持的 dump styles
 
 本机 (Homebrew LAMMPS) 支持：
 `atom`, `custom`, `cfg`, `dcd`, `image`, `local`, `movie`, `xtc`, `xyz`, `yaml`, `grid`, `grid/vtk`

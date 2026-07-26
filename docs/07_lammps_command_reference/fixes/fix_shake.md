@@ -1,6 +1,8 @@
 # fix shake 命令 — 键长/键角约束
 
-* **命令类别：** Fix | **Package：** MOLECULE | **本机可用：** ✅
+* **命令类别：** Fix | **Package：** MOLECULE
+* **命令可用性：** ✅（命令存在于本地 LAMMPS 安装中，`lmp_serial -h` 可列出）
+* **验证状态：** ⬜ 未运行（以下示例尚未在本地实际执行）
 * **官方链接：** [LAMMPS fix shake](https://docs.lammps.org/fix_shake.html)
 
 ---
@@ -62,4 +64,6 @@ timestep 2.0    # ← 可提升到 2 fs
 
 ---
 
-## 验证： ✅ 官方 | ✅ 本机 | ⬜ 未运行
+## 验证状态
+
+* ✅ 官方翻译
