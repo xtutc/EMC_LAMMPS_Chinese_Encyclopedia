@@ -19,7 +19,10 @@ nav:
       - 命令索引: 00_navigation/command_index.md
       - 关键字索引: 00_navigation/keyword_index.md
       - 错误索引: 00_navigation/error_index.md
+      - 文件格式索引: 00_navigation/file_index.md
+      - 力场索引: 00_navigation/force_field_index.md
   - EMC 官方手册:
+      - 手册翻译首页: 01_emc_official_translation/index.md
       - 第1章 引言: 01_emc_official_translation/emc_ch1_introduction.md
       - 第2章 方法论: 01_emc_official_translation/emc_ch2_methodology.md
       - 第3章 程序结构: 01_emc_official_translation/emc_ch3_program_structure.md
@@ -41,6 +44,7 @@ nav:
       - CLI 参数: 06_lammps_user_guide_translation/running/lammps_cli_options.md
       - 输入脚本语法: 06_lammps_user_guide_translation/input_scripts/input_script_syntax.md
   - LAMMPS 命令:
+      - 命令参考首页: 07_lammps_command_reference/index.md
       - velocity: 07_lammps_command_reference/initialization/velocity.md
       - dump: 07_lammps_command_reference/dumps/dump.md
       - thermo: 07_lammps_command_reference/computes/thermo.md

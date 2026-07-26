@@ -20,7 +20,7 @@
 
 | 我想... | 去哪里 |
 |---------|--------|
-| 了解 EMC 是什么 | EMC 官方手册翻译（待创建） |
+| 了解 EMC 是什么 | [EMC 官方手册翻译](01_emc_official_translation/index.md) |
 | 写一个 EMC Setup 文件 | [EMC Setup 参考](02_emc_setup_reference/setup_overview.md) |
 | 查找 EMC 关键字含义 | [关键字索引](00_navigation/keyword_index.md) |
 | 查找 LAMMPS 命令 | [命令索引](00_navigation/command_index.md) |
@@ -43,7 +43,7 @@
 
 | 章节 | 内容 |
 |------|------|
-| 01 EMC 官方手册翻译（待创建） | EMC 官方 PDF 手册的逐章中文翻译 |
+| [01 EMC 官方手册翻译](01_emc_official_translation/index.md) | EMC 官方 PDF 手册的逐章中文翻译 |
 | [02 EMC Setup 参考](02_emc_setup_reference/setup_overview.md) | EMC Setup (emc.pl) 的完整命令和文件格式参考 |
 | [03 EMC 命令参考](03_emc_command_reference/emc_cli.md) | EMC 主程序命令行、工作流和输出文件 |
 | [04 EMC 建模](04_emc_modeling/molecules.md) | 各类体系的 EMC 建模教程 |
@@ -54,7 +54,7 @@
 | 章节 | 内容 |
 |------|------|
 | 06 LAMMPS 用户指南翻译（待创建） | LAMMPS 官方 User Guide 的中文翻译 |
-| 07 LAMMPS 命令参考（待创建） | 每个 LAMMPS 命令的完整中文参考 |
+| [07 LAMMPS 命令参考](07_lammps_command_reference/index.md) | 每个 LAMMPS 命令的完整中文参考 |
 | [08 LAMMPS 文件格式](08_lammps_file_formats/data_file.md) | 输入脚本、data 文件、restart、dump 等格式说明 |
 
 ### 第三部分：实践
