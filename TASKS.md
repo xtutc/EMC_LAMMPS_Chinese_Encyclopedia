@@ -472,7 +472,7 @@ python3 -m mkdocs build --strict 2>&1 | grep -c "not found"  # 应为 0
 
 ## TASK-004：创建缺失的首页和核心文件
 
-**状态：** 验收通过
+**状态：** 等待验收
 **优先级：** P0
 **执行者：** Codex
 **依赖任务：** 无（可与 TASK-003 并行，但注意链接修复可能依赖这些文件存在）
@@ -589,6 +589,13 @@ python3 -m mkdocs build --strict
   - 文件存在性检查与 `test ! -d 'build/{site}'`：退出码 `0`。
 - **未验证内容：** 无本机 EMC/LAMMPS 运行；本任务仅创建导航和索引，不声明运行验证。
 - **Git commit：** `774bda1` (`feat: add encyclopedia index pages`)。
+
+#### 2026-07-27 补充实现记录
+
+- **补充文件：** `.gitignore`、`docs/00_navigation/file_index.md`、`docs/00_navigation/force_field_index.md`、`TASKS.md`。
+- **补充内容：** `.gitignore` 新增 `pycache/` 与 `*.egg-info/`；文件格式索引和力场索引各补充独立的“官方来源”章节（含适用版本与核对日期）；任务状态改为“等待验收”。
+- **本轮验证：** `python3 scripts/check_links.py --strict` 退出码 `0`（38 个 Markdown 文件，0 ERROR）；`python3 scripts/check_nav.py` 退出码 `0`（38 个 nav 条目、38 个 Markdown 文件，0 ERROR、0 WARNING）；`python3 -m mkdocs build --strict` 退出码 `0`。
+- **已知状态：** 当前 `mkdocs.yml` 已在本轮开始前包含这 4 个页面的 nav 条目，因此 `check_nav.py` 未将它们报告为未纳入导航；本轮未修改 `mkdocs.yml`。`STATUS.md` 与 `CHANGELOG.md` 已有用户未提交的 TASK-005 更新，本任务未覆盖或暂存这些改动。
 
 ### Claude Code 验收结果
 

@@ -31,3 +31,12 @@
 - [命令索引](command_index.md)
 - [EMC→LAMMPS 完整工作流](../09_emc_to_lammps/complete_workflow.md)
 - [LAMMPS 命令参考](../07_lammps_command_reference/index.md)
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation；EMC Setup documentation
+- **官方章节或页面：** LAMMPS data 文件与输入脚本；EMC Setup 文件说明
+- **官方 URL：** [LAMMPS 文档](https://docs.lammps.org/)；[EMC 官方网站](https://montecarlo.sourceforge.net/emc/Welcome.html)
+- **本地来源：** `docs/08_lammps_file_formats/data_file.md`、`docs/06_lammps_user_guide_translation/input_scripts/input_script_syntax.md`、`docs/02_emc_setup_reference/setup_overview.md`
+- **适用版本：** EMC 9.4.4；LAMMPS 22 Jul 2025 - Update 4
+- **核对日期：** 2026-07-27

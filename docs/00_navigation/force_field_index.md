@@ -34,3 +34,12 @@
 
 - 新建力场页面时，应在本索引增加名称、缩写、EMC 标识和适用范围。
 - 若官方资料未给出参数名称，应标记“官方资料未给出”，不得用经验推定。
+
+## 官方来源
+
+- **官方标题：** EMC Manual；EMC force-field distribution；LAMMPS Documentation
+- **官方章节或页面：** EMC 力场目录与 `-field` 参数；LAMMPS force field styles
+- **官方 URL：** [EMC 官方网站](https://montecarlo.sourceforge.net/emc/Welcome.html)；[LAMMPS force fields](https://docs.lammps.org/Howto_force_field.html)
+- **本地来源：** `sources/emc/emc_manual.pdf`、`docs/05_force_fields/fundamentals.md`、`docs/05_force_fields/emc_force_field_inventory.md`
+- **适用版本：** EMC 9.4.4；LAMMPS 22 Jul 2025 - Update 4
+- **核对日期：** 2026-07-27
