@@ -517,7 +517,18 @@ python3 -m mkdocs build --strict
 
 ### Codex 实现记录
 
-（由 Codex 填写）
+- **实现日期：** 2026-07-27
+- **修改文件：** `docs/01_emc_official_translation/index.md`、`docs/07_lammps_command_reference/index.md`、`docs/00_navigation/file_index.md`、`docs/00_navigation/force_field_index.md`、`docs/index.md`、`mkdocs.yml`、`.gitignore`、`TASKS.md`、`STATUS.md`、`CHANGELOG.md`；删除空目录 `build/{site}/`。
+- **实现内容：** 新增 4 个可导航的首页/索引页，恢复 TASK-003 为缺失首页去链接化的 3 处入口；在 MkDocs 导航中加入新页面；新增构建产物与 Python/macOS 临时文件忽略规则。
+- **官方来源：** EMC Manual 9.4.4（本地 `sources/emc/emc_manual.pdf` 与官方页面）；LAMMPS 22 Jul 2025 - Update 4 官方文档；现有 EMC 力场清单与手册摘录。
+- **实际验证命令与结果：**
+  - `python3 scripts/check_links.py --strict`：退出码 `0`；扫描 38 个 Markdown 文件，0 个 ERROR、0 个 INFO。
+  - `python3 scripts/check_nav.py --strict`：退出码 `0`；38 个导航条目与 38 个 Markdown 文件，0 个 error、0 个 warning。
+  - `python3 -m mkdocs build --strict`：退出码 `0`；构建完成，未报告 MkDocs 严格模式警告。
+  - `git diff --check`：退出码 `0`。
+  - 文件存在性检查与 `test ! -d 'build/{site}'`：退出码 `0`。
+- **未验证内容：** 无本机 EMC/LAMMPS 运行；本任务仅创建导航和索引，不声明运行验证。
+- **Git commit：** `774bda1` (`feat: add encyclopedia index pages`)。
 
 ### Claude Code 验收结果
 
