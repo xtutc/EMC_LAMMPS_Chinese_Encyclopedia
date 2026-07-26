@@ -2,6 +2,8 @@
 
 > 最后更新：2026-07-26
 
+> 阶段 1 Harness：TASK-001 已实现 `scripts/check_links.py`，当前等待 Claude Code 验收。
+
 ## 总体完成率
 
 | 模块 | 总章节/命令数 | 已完成 | 完成率 | 下一任务 |

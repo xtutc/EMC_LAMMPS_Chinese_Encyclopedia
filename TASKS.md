@@ -51,7 +51,7 @@ TASK-014 (audit command parameter gaps)
 
 ## TASK-001：建立 Markdown 内部链接自动检查脚本
 
-**状态：** 待实现
+**状态：** 等待验收
 **优先级：** P0
 **执行者：** Codex
 **依赖任务：** 无
@@ -114,7 +114,15 @@ echo $?  # 应为 1（当前有 31 个失效链接）
 
 ### Codex 实现记录
 
-（由 Codex 填写）
+- **实现日期：** 2026-07-26
+- **修改文件：** `scripts/check_links.py`、`TASKS.md`、`STATUS.md`、`CHANGELOG.md`
+- **实现内容：** 新增无 MkDocs 依赖的 Markdown 内部链接检查器；支持相对路径、同页与跨页锚点、`{#anchor}`、`<a id="anchor">` 和 Markdown 标题锚点；忽略外部链接，并将目录链接单独报告为 `INFO`。
+- **实际验证命令与结果：**
+  - `python3 scripts/check_links.py`：退出码 `0`；扫描 34 个 Markdown 文件，报告 56 个失效链接/锚点和 2 个目录链接 `INFO`。
+  - `python3 scripts/check_links.py --strict`：退出码 `1`；与严格模式预期一致。
+  - `git diff --check`：退出码 `0`。
+- **未验证内容：** 当前环境未提供可运行的 MkDocs 命令，未能在本轮将脚本输出逐项与 `mkdocs build --strict` 的警告逐项比对；该脚本不修改任何文档链接，链接修复留待 TASK-003。
+- **Git commit：** 待创建。
 
 ### Claude Code 验收结果
 
