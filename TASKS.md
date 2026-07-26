@@ -930,7 +930,7 @@ grep -rn "LAMMPS 22 Jul 2025" docs/ --include="*.md" | grep -v "Update 4"
   - `grep -n "Update 4" docs/10_simulation_workflows/heating.md docs/10_simulation_workflows/production.md`：退出码 `0`，两页均匹配。
   - `python3 -m mkdocs build --strict --site-dir /tmp/emc-lammps-task007.CzdiRO`：退出码 `0`，构建成功（0.59 秒）；使用临时输出目录，未改动既有构建产物。
   - `git diff --check -- <5 个目标 Markdown 文件>`：退出码 `0`。
-- **未验证内容：** 服务器命令未执行。尝试 `ssh -o BatchMode=yes -o ConnectTimeout=10 lyd@192.168.1.11 'pwd'` 返回退出码 `255`：`Permission denied (publickey,password)`；当前环境无服务器认证凭据。
+- **未验证内容：** 服务器上的仓库检查未执行。后续凭据连接成功，服务器主目录为 `/home/lyd`；但在 `/home/lyd` 下五层目录内未找到 `PROJECT.md`、`mkdocs.yml` 或项目目录，尚缺少服务器端仓库实际路径。
 - **已知限制：** 任务给出的宽泛检查 `grep -rn "July 1" docs/` 会误匹配无关的 EMC Setup `July 16, 2026`，因此改为精确匹配旧日期 `July 1, 2026`；未修改该无关页面。
 - **Git commit：** `fa43ff4` (`fix: standardize page version metadata`)。
 
