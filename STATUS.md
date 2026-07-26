@@ -1,8 +1,8 @@
 # 百科完成状态
 
-> 最后更新：2026-07-26
+> 最后更新：2026-07-27
 
-> 阶段 1 Harness：TASK-001、TASK-002 已验收通过；TASK-003 已修复全部 Markdown 内部失效链接，等待验收。
+> 阶段 1 Harness：TASK-001、TASK-002、TASK-003、TASK-004 已验收通过。
 
 ## 总体完成率
 
@@ -22,13 +22,13 @@
 
 ### 总体进度
 
-- **已创建页面：** 19 个（含 README, STATUS, index, source_manifest, emc_manual_toc）
+- **已创建页面：** 23 个（含 README, STATUS, index, source_manifest, emc_manual_toc 及 TASK-004 新增 4 个索引页）
 - **内容字数（估计）：** ~40,000+ 中文字
 - **EMC 手册 PDF：** ✅ 已获取 (906KB)
 - **EMC 手册 TOC：** ✅ 已映射
 - **服务器连接：** ✅ EMC 9.4.4 + LAMMPS 7 Feb 2024
 
-### 已完成页面 (26 个文件)
+### 已完成页面 (30 个文件)
 
 | # | 文件 | 内容 |
 |---|------|------|
@@ -36,6 +36,9 @@
 | 2 | [STATUS.md](STATUS.md) | 本状态文件 |
 | 3 | [docs/index.md](docs/index.md) | 百科主页索引 |
 | 4 | [docs/00_navigation/error_index.md](docs/00_navigation/error_index.md) | 错误信息索引 |
+| 5 | [docs/00_navigation/file_index.md](docs/00_navigation/file_index.md) | 文件格式索引（新增于 TASK-004） |
+| 6 | [docs/00_navigation/force_field_index.md](docs/00_navigation/force_field_index.md) | 力场索引（新增于 TASK-004） |
+| 7 | [docs/01_emc_official_translation/index.md](docs/01_emc_official_translation/index.md) | EMC 手册翻译首页（新增于 TASK-004） |
 | 5 | [docs/01_emc_official_translation/emc_ch1_introduction.md](docs/01_emc_official_translation/emc_ch1_introduction.md) | EMC 手册第1章翻译 |
 | 6 | [docs/01_emc_official_translation/emc_ch2_methodology.md](docs/01_emc_official_translation/emc_ch2_methodology.md) | EMC 手册第2章翻译 |
 | 7 | [docs/01_emc_official_translation/emc_ch3_program_structure.md](docs/01_emc_official_translation/emc_ch3_program_structure.md) | EMC 手册第3章翻译 |
@@ -48,7 +51,8 @@
 | 14 | [docs/05_force_fields/fundamentals.md](docs/05_force_fields/fundamentals.md) | 力场基础 |
 | 15 | [docs/06_lammps_user_guide_translation/running/lammps_cli_options.md](docs/06_lammps_user_guide_translation/running/lammps_cli_options.md) | LAMMPS CLI 完整参考 |
 | 16 | [docs/06_lammps_user_guide_translation/input_scripts/input_script_syntax.md](docs/06_lammps_user_guide_translation/input_scripts/input_script_syntax.md) | LAMMPS 输入脚本语法 |
-| 17 | [docs/07_lammps_command_reference/dumps/dump.md](docs/07_lammps_command_reference/dumps/dump.md) | LAMMPS dump 命令 |
+| 17 | [docs/07_lammps_command_reference/index.md](docs/07_lammps_command_reference/index.md) | LAMMPS 命令参考首页（新增于 TASK-004） |
+| 18 | [docs/07_lammps_command_reference/dumps/dump.md](docs/07_lammps_command_reference/dumps/dump.md) | LAMMPS dump 命令 |
 | 18 | [docs/07_lammps_command_reference/computes/thermo.md](docs/07_lammps_command_reference/computes/thermo.md) | LAMMPS thermo 命令 |
 | 19 | [docs/07_lammps_command_reference/initialization/velocity.md](docs/07_lammps_command_reference/initialization/velocity.md) | LAMMPS velocity 命令 |
 | 20 | [docs/08_lammps_file_formats/data_file.md](docs/08_lammps_file_formats/data_file.md) | LAMMPS data 文件格式 |

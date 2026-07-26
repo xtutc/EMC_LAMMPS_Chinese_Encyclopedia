@@ -318,7 +318,7 @@ python3 scripts/check_status.py
 
 ## TASK-003：修复所有 Markdown 内部失效链接
 
-**状态：** 等待验收
+**状态：** 验收通过
 **优先级：** P0
 **执行者：** Codex
 **依赖任务：** TASK-001（需要 check_links.py 用于验证修复）
@@ -406,13 +406,73 @@ python3 -m mkdocs build --strict 2>&1 | grep -c "not found"  # 应为 0
 
 ### Claude Code 验收结果
 
-（由 Claude Code 填写）
+- **验收日期：** 2026-07-27
+- **验收 Commit：** `0aedf4f`（实现）
+- **检查文件：** 17 个 docs/ Markdown 文件 + CHANGELOG.md、STATUS.md
+
+#### 验收标准逐项检查
+
+1. ✅ `python3 scripts/check_links.py --strict` 返回 0：
+   - 扫描 34 个 Markdown 文件，0 个 ERROR、0 个 INFO
+   - 退出码 `0`（严格模式通过）
+
+2. ✅ `python3 -m mkdocs build --strict` 链接相关警告为 0：
+   - 构建成功，用时 0.55s，退出码 `0`
+   - 零 MkDocs WARNING（与 audit 报告的 52 warnings 对比，全部消除）
+
+3. ✅ 没有删除任何有用信息：
+   - 失效链接均保留原文字，转换为 `文字（待创建）` 格式
+   - 目录链接（如 `../11_parallel_and_hpc/`）保留章节名 + "（待创建）"标记
+   - `annealing.md` → `heating.md` 修正是因为 `heating.md` 实际存在且内容覆盖加热与退火
+
+4. ✅ 所有修改仅涉及链接路径，不涉及正文内容：
+   - `git diff 628e5f8..0aedf4f -- docs/` 中所有非链接、非锚点、非占位符的变更为空
+   - 修改类型仅限于：(a) 修正错误相对路径、(b) 死链转纯文本+"（待创建）"、(c) 添加 `<a id="...">` 锚点
+
+#### 修改分析
+
+| 修改类别 | 数量 | 示例 |
+|----------|------|------|
+| 修正错误相对路径 | ~25 处 | `../02_emc_setup_reference/setup_overview.md` → `02_emc_setup_reference/setup_overview.md`（index.md）；`setup_cli.md` → `../02_emc_setup_reference/setup_cli.md`（emc_cli.md） |
+| 死链→"待创建"占位 | ~20 处 | `setup_file_rules.md`、`random_copolymers.md`、`mixtures.md` 等不存在页面 |
+| 目录链接→"待创建" | ~8 处 | `../11_parallel_and_hpc/`、`../15_errors/`、`../07_lammps_command_reference/index.md` 等 |
+| 添加 HTML 锚点 | 3 处 | `<a id="4-混合物体系">`、`<a id="-skiprun--sr">`、`<a id="已安装的-packages">` |
+| 修正文件名 | 1 处 | `annealing.md` → `heating.md`（nvt.md，heating.md 实际存在） |
+
+#### 重新运行的验证命令
+
+| 命令 | 退出码 | 结果 |
+|------|--------|------|
+| `python3 scripts/check_links.py` | 0 | 34 文件，0 ERROR，0 INFO |
+| `python3 scripts/check_links.py --strict` | 0 | 严格模式通过 |
+| `python3 -m mkdocs build --strict` | 0 | 构建成功 0.55s，0 warnings |
+| `git log --oneline -5` | 0 | 确认实现 commit `0aedf4f` |
+| `git diff 628e5f8..0aedf4f --stat` | 0 | 17 个 docs/ 文件，+65/-58 行 |
+
+#### 范围边界检查
+
+- ✅ 未修改 `mkdocs.yml`（`git diff 0aedf4f -- mkdocs.yml` 为空）
+- ✅ 未降低 mkdocs build 严格模式（`--strict` 仍在使用且通过）
+- ✅ 未删除链接（所有死链保留文字 + "（待创建）"标记，信息完全保留）
+- ✅ 未修改正文内容（仅修正链接路径和添加锚点）
+- ✅ 未创建新页面（不存在的页面标记为"待创建"，留给 TASK-004）
+- ✅ `docs/index.md` 的 `../` 前缀已正确移除（index.md 在 docs/ 根目录）
+- ✅ CHANGELOG.md、STATUS.md 的修改属于 AGENTS.md 4.2 要求的元数据更新
+
+#### 额外发现
+
+- `docs/10_simulation_workflows/nvt.md` 中 `annealing.md` → `heating.md` 的修正是合理的：`heating.md` 实际存在（38 行），且该页面的 `## 3. 升温与退火` 章节覆盖了退火内容。
+- 3 个 HTML 锚点均放置在对应章节标题正上方，与 MkDocs 自动生成的锚点 slug 一致（验证通过 `check_links.py` 的 Unicode slug 匹配）。
+
+#### 结论
+
+**✅ 验收通过。** TASK-003 满足全部验收标准。56 个失效链接/锚点（由 TASK-001 check_links.py 检测）全部修复：错误路径已修正为正确相对路径，不存在的目标页面保留文字并标记"（待创建）"，3 个缺失锚点已添加显式 HTML 锚点。`check_links.py --strict` 和 `mkdocs build --strict` 均零错误通过。信息完全保留，仅链接路径涉及修改。
 
 ---
 
 ## TASK-004：创建缺失的首页和核心文件
 
-**状态：** 等待验收
+**状态：** 验收通过
 **优先级：** P0
 **执行者：** Codex
 **依赖任务：** 无（可与 TASK-003 并行，但注意链接修复可能依赖这些文件存在）
@@ -532,7 +592,94 @@ python3 -m mkdocs build --strict
 
 ### Claude Code 验收结果
 
-（由 Claude Code 填写）
+- **验收日期：** 2026-07-27
+- **验收 Commit：** `774bda1`（实现）
+- **检查文件：** 4 个新建 .md 文件、`.gitignore`、`mkdocs.yml`、`docs/index.md`、`docs/00_navigation/keyword_index.md`
+
+#### 验收标准逐项检查
+
+1. ✅ **4 个文件均存在且内容完整（每个 > 20 行）：**
+   - `docs/01_emc_official_translation/index.md`：61 行
+   - `docs/07_lammps_command_reference/index.md`：56 行
+   - `docs/00_navigation/file_index.md`：33 行
+   - `docs/00_navigation/force_field_index.md`：36 行
+
+2. ✅ **每个页面有基本的元数据（适用版本）：**
+   - `01_emc_official_translation/index.md`：`适用版本：EMC 9.4.4`、`核对日期：2026-07-27`、`## 官方来源`
+   - `07_lammps_command_reference/index.md`：`适用版本：LAMMPS 22 Jul 2025 - Update 4`、`核对日期：2026-07-27`、`## 官方来源`
+   - `00_navigation/file_index.md`：`适用对象：EMC 与 LAMMPS 用户`、`索引状态：...`
+   - `00_navigation/force_field_index.md`：`适用版本：EMC 9.4.4；LAMMPS 22 Jul 2025 - Update 4`
+
+3. ✅ **.gitignore 存在且包含基本规则：** `build/`、`__pycache__/`、`*.pyc`、`.DS_Store`
+
+4. ✅ **build/{site}/ 已删除：** `test -d "build/{site}"` → `REMOVED OK`
+
+5. ✅ **新建文件被 check_links.py 和 check_nav.py 识别：**
+   - `check_links.py --strict`：扫描 38 文件，0 ERROR，0 INFO，退出码 0
+   - `check_nav.py`：38 nav 条目与 38 docs 文件完全匹配，0 error，0 warning
+
+6. ✅ **新建文件在 mkdocs.yml nav 中有条目：**
+   - `00_navigation/file_index.md`（导航 → 文件格式索引）
+   - `00_navigation/force_field_index.md`（导航 → 力场索引）
+   - `01_emc_official_translation/index.md`（EMC 官方手册 → 手册翻译首页）
+   - `07_lammps_command_reference/index.md`（LAMMPS 命令 → 命令参考首页）
+
+7. ✅ **新建文件通过 `mkdocs build --strict`：** 构建成功 0.53s，零 warnings（MkDocs 2.0 公告为非可操作警告）
+
+#### 实现要求检查
+
+| 要求 | 文件 | 状态 |
+|------|------|------|
+| 标题 "EMC 官方手册翻译" | `01_emc_official_translation/index.md` | ✅ 含 6 章节导航、翻译状态标注、PDF 链接 |
+| 标题 "LAMMPS 命令参考" | `07_lammps_command_reference/index.md` | ✅ 含 4 个已收录命令（按类别）、完整程度标注、5 个已规划类别 |
+| 标题 "文件格式索引" | `00_navigation/file_index.md` | ✅ 含 3 个已覆盖格式、与 `08_lammps_file_formats` 的关系说明、相关页面链接 |
+| 标题 "力场索引" | `00_navigation/force_field_index.md` | ✅ 含 7 个力场名称/缩写/EMC 标识/适用材料、相关页面链接 |
+| .gitignore ≥ 4 条规则 | `.gitignore` | ✅ 精确 4 条：`build/`、`__pycache__/`、`*.pyc`、`.DS_Store` |
+
+#### 附加检查：docs/index.md 链接恢复
+
+TASK-003 因缺失首页将 3 处链接标记为"待创建"。TASK-004 创建文件后正确恢复了这些链接：
+- "了解 EMC 是什么" → 恢复为 `[EMC 官方手册翻译](01_emc_official_translation/index.md)`
+- 01 EMC 官方手册翻译 → 恢复为 `[01 EMC 官方手册翻译](01_emc_official_translation/index.md)`
+- 07 LAMMPS 命令参考 → 恢复为 `[07 LAMMPS 命令参考](07_lammps_command_reference/index.md)`
+
+#### 附加检查：keyword_index.md 外部链接修复
+
+`docs/00_navigation/keyword_index.md` 中 2 个指向 `docs/` 外部文件的相对链接（`../../sources/emc/emc_manual.pdf`、`../../reports/emc_keyword_inventory.csv`）被改为纯文本引用（保留路径），消除了 MkDocs 严格模式下的潜在问题。属于链接修正，不涉及正文内容修改。
+
+#### 重新运行的验证命令
+
+| 命令 | 退出码 | 结果 |
+|------|--------|------|
+| `test -f docs/01_emc_official_translation/index.md` | 0 | EXISTS |
+| `test -f docs/07_lammps_command_reference/index.md` | 0 | EXISTS |
+| `test -f docs/00_navigation/file_index.md` | 0 | EXISTS |
+| `test -f docs/00_navigation/force_field_index.md` | 0 | EXISTS |
+| `test -f .gitignore` | 0 | EXISTS |
+| `test -d "build/{site}"` | 1 | REMOVED OK |
+| `wc -l docs/01_emc_official_translation/index.md` | 0 | 61 行 |
+| `wc -l docs/07_lammps_command_reference/index.md` | 0 | 56 行 |
+| `wc -l docs/00_navigation/file_index.md` | 0 | 33 行 |
+| `wc -l docs/00_navigation/force_field_index.md` | 0 | 36 行 |
+| `python3 scripts/check_links.py --strict` | 0 | 38 文件，0 ERROR，0 INFO |
+| `python3 scripts/check_nav.py --strict` | 0 | 38 nav ↔ 38 docs，0 error，0 warning |
+| `python3 -m mkdocs build --strict` | 0 | 构建成功 0.53s，0 warnings |
+| `git log --oneline -6` | 0 | 确认实现 commit `774bda1` |
+
+#### 范围边界检查
+
+- ✅ 4 个新建 .md 文件均属于允许修改范围
+- ✅ `.gitignore` 新建（允许）
+- ✅ `build/{site}/` 已删除（允许）
+- ✅ `mkdocs.yml` 新增 4 条 nav 条目（允许："如果不添加新页面到 nav" 的例外条件满足）
+- ✅ `docs/index.md` 的修改仅限于恢复此前被去链接化的 3 处链接（非正文内容修改）
+- ✅ `docs/00_navigation/keyword_index.md` 修改仅涉及外部链接格式（非正文内容修改）
+- ✅ TASKS.md、STATUS.md、CHANGELOG.md 的修改属于 AGENTS.md 4.2 要求的元数据更新
+- ✅ 无其他已有文件或目录被删除
+
+#### 结论
+
+**✅ 验收通过。** TASK-004 满足全部 7 项验收标准。4 个缺失的索引/首页均已创建，内容完整且符合实现要求；`.gitignore` 包含基本忽略规则；无效目录 `build/{site}/` 已删除。所有 Harness 脚本（check_links.py、check_nav.py、mkdocs build --strict）零错误通过。TASK-004 的完成为 TASK-010（修复 README.md 中指向 file_index.md 和 force_field_index.md 的链接）解除了依赖阻塞。
 
 ---
 
