@@ -744,7 +744,7 @@ python3 scripts/check_status.py
   - `python3 scripts/check_status.py --strict && echo "PASS" || echo "FAIL"`：输出全部 11 个模块 `MATCH`、0 个 difference，并输出 `PASS`（退出码 0）。
   - `python3 -m mkdocs build --strict`：退出码 0，构建成功。
 - **未验证内容：** 无。
-- **Git commit：** 本任务提交后补充。
+- **Git commit：** `f2973f1`（`chore: align status with actual pages`）。
 
 ### Claude Code 验收结果
 
