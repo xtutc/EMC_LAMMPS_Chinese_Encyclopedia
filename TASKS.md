@@ -122,7 +122,7 @@ echo $?  # 应为 1（当前有 31 个失效链接）
   - `python3 scripts/check_links.py --strict`：退出码 `1`；与严格模式预期一致。
   - `git diff --check`：退出码 `0`。
 - **未验证内容：** 当前环境未提供可运行的 MkDocs 命令，未能在本轮将脚本输出逐项与 `mkdocs build --strict` 的警告逐项比对；该脚本不修改任何文档链接，链接修复留待 TASK-003。
-- **Git commit：** 待创建。
+- **Git commit：** `d650c68` (`feat: add Markdown link checker`)。
 
 ### Claude Code 验收结果
 
