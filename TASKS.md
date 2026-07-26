@@ -132,7 +132,7 @@ echo $?  # 应为 1（当前有 31 个失效链接）
 
 ## TASK-002：建立导航检查与状态统计脚本
 
-**状态：** 待实现
+**状态：** 等待验收
 **优先级：** P0
 **执行者：** Codex
 **依赖任务：** 无
@@ -202,7 +202,16 @@ python3 scripts/check_status.py
 
 ### Codex 实现记录
 
-（由 Codex 填写）
+- **实现日期：** 2026-07-27
+- **修改文件：** `scripts/check_nav.py`、`scripts/check_status.py`
+- **实现内容：** 新增 check_nav.py（解析 mkdocs.yml nav 结构并验证所有条目对应的文件存在、列出未被 nav 覆盖的文件）；新增 check_status.py（统计 docs/ 下各模块目录的实际 .md 文件数量、总行数、总非空字符数，与 STATUS.md 表格声明的数量逐一对比）。
+- **实际验证命令与结果：**
+  - `python3 scripts/check_nav.py`：退出码 `0`；34 个 nav 条目与 34 个 docs 文件完全匹配，0 error、0 warning。
+  - `python3 scripts/check_nav.py --strict`：退出码 `0`。
+  - `python3 scripts/check_status.py`：退出码 `0`；报告 6 个模块数量不一致（01/04/05/07/09/10），与审计报告一致；全局统计 34 文件、5476 行、107674 非空字符。
+  - `python3 scripts/check_status.py --strict`：退出码 `1`（6 个差异，符合预期）。
+- **未验证内容：** 无。
+- **Git commit：** `0af8162`。
 
 ### Claude Code 验收结果
 
