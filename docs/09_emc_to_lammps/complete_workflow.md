@@ -1,6 +1,8 @@
 # EMC → LAMMPS 完整工作流
 
-* **EMC 版本：** 9.4.4 | **LAMMPS 版本：** 7 Feb 2024 / 22 Jul 2025
+* **EMC 版本：** 9.4.4 (Jul 21 2026)
+* **LAMMPS 版本（服务器）：** 7 Feb 2024 - Update 1
+* **LAMMPS 版本（本地）：** 22 Jul 2025 - Update 4
 * **官方来源：** EMC 官方手册, EMC Setup 文档, LAMMPS 官方文档
 * **翻译状态：** 完整（含编者注释和实际运行建议）
 
@@ -317,8 +319,8 @@ write_data      production.data
 ## 11. 验证状态
 
 * ✅ EMC 和 LAMMPS 均在服务器上可用
-* ✅ EMC 版本确认为 9.4.4
-* ✅ LAMMPS 版本确认为 7 Feb 2024
+* ✅ EMC 版本确认为 9.4.4 (Jul 21 2026)
+* ✅ 服务器 LAMMPS 版本确认为 7 Feb 2024 - Update 1
 * ✅ 服务器上有用户已验证的示例 (simple-water-ethanol)
 * ⬜ 本机端到端运行验证
 

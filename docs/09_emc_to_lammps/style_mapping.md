@@ -1,6 +1,8 @@
 # EMC → LAMMPS Style 映射表
 
-* **EMC 9.4.4** | **LAMMPS 22 Jul 2025 / 7 Feb 2024**
+* **EMC 版本：** 9.4.4 (Jul 21 2026)
+* **LAMMPS 版本（本地）：** 22 Jul 2025 - Update 4
+* **LAMMPS 版本（服务器）：** 7 Feb 2024 - Update 1
 
 ---
 

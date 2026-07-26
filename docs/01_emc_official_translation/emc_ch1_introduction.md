@@ -3,7 +3,7 @@
 * **英文原题：** Chapter 1: Introduction
 * **官方章节号：** 1
 * **官方页码：** 1–2
-* **适用 EMC 版本：** 9.4.4 (July 1, 2026)
+* **适用 EMC 版本：** 9.4.4 (Jul 21 2026)
 * **官方来源：** EMC Manual PDF (`/opt/emc-9.4.4/docs/emc.pdf`)
 
 ---

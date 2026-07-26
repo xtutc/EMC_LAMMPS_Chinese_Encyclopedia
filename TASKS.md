@@ -848,7 +848,7 @@ grep -rn "本机验证\|本机可用" docs/07_lammps_command_reference/ docs/03_
 
 ## TASK-007：统一所有页面的版本信息
 
-**状态：** 待实现
+**状态：** 等待验收
 **优先级：** P1
 **执行者：** Codex
 **依赖任务：** 无
@@ -922,7 +922,17 @@ grep -rn "LAMMPS 22 Jul 2025" docs/ --include="*.md" | grep -v "Update 4"
 
 ### Codex 实现记录
 
-（由 Codex 填写）
+- **实现日期：** 2026-07-27
+- **修改文件：** `docs/01_emc_official_translation/emc_ch1_introduction.md`、`docs/10_simulation_workflows/heating.md`、`docs/10_simulation_workflows/production.md`、`docs/09_emc_to_lammps/complete_workflow.md`、`docs/09_emc_to_lammps/style_mapping.md`、`TASKS.md`、`CHANGELOG.md`
+- **实现内容：** 将 EMC 元数据统一为 `9.4.4 (Jul 21 2026)`；补齐本地 LAMMPS `22 Jul 2025 - Update 4`；在同时涉及两套环境的页面中明确区分服务器 `7 Feb 2024 - Update 1` 与本地版本；更新完整工作流页的底部服务器版本确认行。
+- **实际验证命令与结果：**
+  - `grep -rnF "July 1, 2026" docs/ --include="*.md"`：退出码 `0`，无输出。
+  - `grep -n "Update 4" docs/10_simulation_workflows/heating.md docs/10_simulation_workflows/production.md`：退出码 `0`，两页均匹配。
+  - `python3 -m mkdocs build --strict --site-dir /tmp/emc-lammps-task007.CzdiRO`：退出码 `0`，构建成功（0.59 秒）；使用临时输出目录，未改动既有构建产物。
+  - `git diff --check -- <5 个目标 Markdown 文件>`：退出码 `0`。
+- **未验证内容：** 服务器命令未执行。尝试 `ssh -o BatchMode=yes -o ConnectTimeout=10 lyd@192.168.1.11 'pwd'` 返回退出码 `255`：`Permission denied (publickey,password)`；当前环境无服务器认证凭据。
+- **已知限制：** 任务给出的宽泛检查 `grep -rn "July 1" docs/` 会误匹配无关的 EMC Setup `July 16, 2026`，因此改为精确匹配旧日期 `July 1, 2026`；未修改该无关页面。
+- **Git commit：** `67b0d9d` (`fix: standardize page version metadata`)。
 
 ### Claude Code 验收结果
 
