@@ -4,7 +4,8 @@
 
 **中文名称：** EMC 与 LAMMPS 中文百科全书  
 **英文名称：** EMC & LAMMPS Chinese Encyclopedia  
-**项目目录：** `EMC_LAMMPS_Chinese_Encyclopedia`
+**项目目录：** `EMC_LAM
+MPS_Chinese_Encyclopedia`
 
 本项目是非官方中文翻译、注释与实践参考项目，仅用于个人学习、实验室内部使用和科研查阅。
 
