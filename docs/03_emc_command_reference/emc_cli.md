@@ -266,3 +266,12 @@ emc -quiet -nthreads=16 build.emc
 - EMC Setup 文件规则（待创建）
 - EMC 文件工作流（待创建）
 - [EMC→LAMMPS 工作流](../09_emc_to_lammps/complete_workflow.md)
+
+## 官方来源
+
+- **官方标题：** EMC Setup Manual v9.4.4 — EMC command-line interface
+- **官方章节或命令：** `emc -help`
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `/opt/emc-9.4.4/bin/emc_linux_x86_64`（服务器安装路径）；`sources/emc/emc_manual.pdf`
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)
+- **核对日期：** 2026-07-27

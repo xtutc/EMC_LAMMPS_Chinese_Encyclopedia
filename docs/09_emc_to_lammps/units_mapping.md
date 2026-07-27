@@ -205,3 +205,12 @@ run             50000
 - [EMC→LAMMPS 完整工作流](complete_workflow.md)
 - 力场映射表（待创建）
 - [力场基础](../05_force_fields/fundamentals.md)
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — units command
+- **官方章节或命令：** `units`
+- **官方 URL：** https://docs.lammps.org/units.html
+- **本地来源：** 本地未获取
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）；EMC 9.4.4 (Jul 21 2026)
+- **核对日期：** 2026-07-27

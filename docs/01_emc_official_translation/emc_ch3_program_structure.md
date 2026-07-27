@@ -33,3 +33,12 @@ g(r)、回转半径、密度/能量/压力分布、CESA。
 **验证：** 官方翻译 | 未运行验证
 
 **相关：** [第2章](emc_ch2_methodology.md) | [EMC建模](../04_emc_modeling/molecules.md)
+
+## 官方来源
+
+- **官方标题：** EMC Setup Manual v9.4.4 — Chapter 3: Program Structure
+- **官方章节：** 3 Program Structure（PDF 第 6–7 页）
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `sources/emc/emc_manual.pdf`（服务器路径：`/opt/emc-9.4.4/docs/emc.pdf`）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)
+- **核对日期：** 2026-07-27

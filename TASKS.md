@@ -1015,6 +1015,19 @@ grep -L "官方来源" docs/01_emc_official_translation/*.md docs/02_emc_setup_r
 - **未验证内容：** 未在服务器环境运行 `lmp_serial -h`；本任务只按指定模板补充来源元数据，未宣称执行命令验证。
 - **Git commit：** `45d06cc` (`docs: add source metadata for TASK-008`)。
 
+#### Codex 返工记录
+
+- **返工日期：** 2026-07-27
+- **返工原因：** Claude Code 验收确认 TASK-008 的范围为全部 30 个内容页面；首个实现遗漏 17 个仅含头部简写来源的页面。
+- **返工内容：** 为验收列出的 17 个页面在文件末尾补齐独立 `## 官方来源` 章节。每页均记录官方 URL、适用版本、核对日期及可确认的本地来源；本地材料未获取时明确标注“本地未获取”。
+- **实际验证命令与结果：**
+  - 内容页面来源章节完整性扫描：30/30 通过，`source_sections_missing=0`。
+  - `python3 scripts/check_links.py --strict`：退出码 `0`，38 文件、0 error、0 info。
+  - `python3 scripts/check_nav.py --strict`：退出码 `0`，38 ↔ 38、0 error、0 warning。
+  - `python3 scripts/check_status.py --strict`：退出码 `0`，11 个模块全部 MATCH。
+  - `python3 -m mkdocs build --strict`：退出码 `0`，站点构建成功。
+- **Git commit：** 待创建。
+
 ### Claude Code 验收结果
 
 （由 Claude Code 填写）

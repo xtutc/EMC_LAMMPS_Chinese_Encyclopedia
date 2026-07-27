@@ -280,3 +280,13 @@ grep "Minimization" minim.log
 - [NPT 平衡](npt.md)
 - [LAMMPS 输入脚本语法](../06_lammps_user_guide_translation/input_scripts/input_script_syntax.md)
 - [EMC→LAMMPS 完整工作流](../09_emc_to_lammps/complete_workflow.md)
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — minimize command
+- **官方章节或命令：** `minimize`
+- **官方 URL：** https://docs.lammps.org/minimize.html
+- **本地来源：** 本地未获取
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）
+- **核对日期：** 2026-07-27
+- **内容说明：** 本章为编者整理的最小化流程实践指南，结合官方文档与编者注释编写。

@@ -362,3 +362,12 @@ lmp_serial -suffix opt -in input.in
 * ✅ 本机静态检查
 * ⬜ 本机实际运行
 * ⬜ 尚未验证
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — Run options
+- **官方章节或命令：** Run options；`lmp_serial -h`
+- **官方 URL：** https://docs.lammps.org/Run_options.html
+- **本地来源：** `/opt/homebrew/bin/lmp_serial`（本地 macOS 安装路径）
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）
+- **核对日期：** 2026-07-27

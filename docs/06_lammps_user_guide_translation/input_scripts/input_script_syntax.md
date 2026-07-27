@@ -347,3 +347,12 @@ write_data      npt_final.data
 - [最小化流程](../../10_simulation_workflows/minimization.md)
 - [NVT 流程](../../10_simulation_workflows/nvt.md)
 - [NPT 流程](../../10_simulation_workflows/npt.md)
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — Commands input, parse, and structure
+- **官方章节或命令：** Commands_input、Commands_parse、Commands_structure
+- **官方 URL：** https://docs.lammps.org/Commands_input.html
+- **本地来源：** 本地未获取
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）
+- **核对日期：** 2026-07-27

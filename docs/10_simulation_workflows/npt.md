@@ -248,3 +248,13 @@ EMC Setup 生成的脚本通常包含 NVT 和 NPT。关键参数由 Setup 命令
 - [生产模拟](production.md)
 - NVE 流程（待创建）
 - 平衡检查（待创建）
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — fix nvt/npt/nph command
+- **官方章节或命令：** `fix npt`
+- **官方 URL：** https://docs.lammps.org/fix_nh.html
+- **本地来源：** 本地未获取
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）
+- **核对日期：** 2026-07-27
+- **内容说明：** 本章为编者整理的 NPT 模拟流程指南，结合官方文档与编者注释编写。

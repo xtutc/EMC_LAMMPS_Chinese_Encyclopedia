@@ -238,3 +238,12 @@ EMC 生成的聚合物体系输出包含：
 - 共聚物建模（待创建）
 - 混合物建模（待创建）
 - [EMC→LAMMPS 工作流](../09_emc_to_lammps/complete_workflow.md)
+
+## 官方来源
+
+- **官方标题：** EMC Setup Manual v9.4.4 — Simulation Setup: Polymers
+- **官方章节：** 4.6.2.4 Polymers
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `sources/emc/emc_manual.pdf`（服务器路径：`/opt/emc-9.4.4/docs/emc.pdf`）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)；EMC Setup 5.3
+- **核对日期：** 2026-07-27

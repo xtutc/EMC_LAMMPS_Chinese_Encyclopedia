@@ -109,3 +109,12 @@ EMC 软件包包含以下内容：
 - [力场清单](../05_force_fields/emc_force_field_inventory.md)
 - [EMC→LAMMPS 完整工作流](../09_emc_to_lammps/complete_workflow.md)
 - [第 2 章：方法论](emc_ch2_methodology.md)
+
+## 官方来源
+
+- **官方标题：** EMC Setup Manual v9.4.4 — Chapter 1: Introduction
+- **官方章节：** 1 Introduction（PDF 第 1–2 页）
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `sources/emc/emc_manual.pdf`（服务器路径：`/opt/emc-9.4.4/docs/emc.pdf`）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)
+- **核对日期：** 2026-07-27

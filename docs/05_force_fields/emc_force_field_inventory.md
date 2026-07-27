@@ -176,3 +176,12 @@ EMC 力场：PCFF 或 COMPASS
 - [EMC→LAMMPS 单位映射](../09_emc_to_lammps/units_mapping.md)
 - [EMC→LAMMPS Style 映射](../09_emc_to_lammps/style_mapping.md)
 - [EMC Setup 总览](../02_emc_setup_reference/setup_overview.md)
+
+## 官方来源
+
+- **官方标题：** EMC Features — Supported Force Fields
+- **官方章节：** EMC Supported Force Fields
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Features.html
+- **本地来源：** `/opt/emc-9.4.4/field/`（服务器力场目录）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)；LAMMPS 22 Jul 2025 - Update 4
+- **核对日期：** 2026-07-27

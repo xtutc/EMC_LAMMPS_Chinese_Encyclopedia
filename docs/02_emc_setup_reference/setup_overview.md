@@ -232,3 +232,12 @@ EMC Setup (emc.pl Perl)
 - [EMC 主程序命令行](../03_emc_command_reference/emc_cli.md)
 - [EMC→LAMMPS 完整工作流](../09_emc_to_lammps/complete_workflow.md)
 - [力场清单](../05_force_fields/emc_force_field_inventory.md)
+
+## 官方来源
+
+- **官方标题：** EMC Welcome — EMC Setup
+- **官方章节或命令：** EMC Setup overview；`emc.pl -help`
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `/opt/emc-9.4.4/scripts/emc.pl`（服务器安装路径）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)；EMC Setup 5.3 (July 16, 2026)
+- **核对日期：** 2026-07-27

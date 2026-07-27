@@ -335,3 +335,13 @@ write_data      production.data
 - [力场清单](../05_force_fields/emc_force_field_inventory.md)
 - [Style 映射](style_mapping.md)
 - 文件映射（待创建）
+
+## 官方来源
+
+- **官方标题：** EMC Setup Manual v9.4.4 and LAMMPS Documentation — workflow references
+- **官方章节：** EMC Setup / LAMMPS export workflow；LAMMPS documentation
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `sources/emc/emc_manual.pdf`；`/opt/emc-9.4.4/scripts/emc2lammps.emc`（服务器安装路径）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)；LAMMPS 22 Jul 2025 - Update 4（本地）/ 7 Feb 2024 - Update 1（服务器）
+- **核对日期：** 2026-07-27
+- **内容说明：** 本章为编者整理的工作流指南，结合官方文档与实践建议编写。

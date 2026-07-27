@@ -438,3 +438,12 @@ Dihedrals
 - EMC→LAMMPS 文件映射（待创建）
 - [EMC→LAMMPS 单位映射](../09_emc_to_lammps/units_mapping.md)
 - LAMMPS 力场参考（相关类别目录，待创建）
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — read_data and write_data commands
+- **官方章节或命令：** `read_data`；`write_data`
+- **官方 URL：** https://docs.lammps.org/read_data.html
+- **本地来源：** 本地未获取
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）
+- **核对日期：** 2026-07-27

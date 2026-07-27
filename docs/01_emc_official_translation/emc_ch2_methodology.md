@@ -52,3 +52,12 @@ EMC 力场系统为模块化架构。力场由两类文件定义：
 
 ## 相关页面
 - [第1章](emc_ch1_introduction.md) | [力场基础](../05_force_fields/fundamentals.md)
+
+## 官方来源
+
+- **官方标题：** EMC Setup Manual v9.4.4 — Chapter 2: Methodology
+- **官方章节：** 2 Methodology（PDF 第 3–5 页）
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `sources/emc/emc_manual.pdf`（服务器路径：`/opt/emc-9.4.4/docs/emc.pdf`）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)
+- **核对日期：** 2026-07-27

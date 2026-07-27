@@ -156,3 +156,13 @@ EMC 生成的 LAMMPS 参数文件 (system.params)。
 - [EMC Setup CLI 参考](../02_emc_setup_reference/setup_cli.md)
 - [EMC 第5章](emc_ch5_workflow_agent.md)
 - [EMC 第6章](emc_ch6_scripting_commands.md)
+
+## 官方来源
+
+- **官方标题：** EMC Setup Manual v9.4.4 — Chapter 4: Simulation Setup
+- **官方章节：** 4 Simulation Setup（PDF 第 8–97 页）
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `sources/emc/emc_manual.pdf`（服务器路径：`/opt/emc-9.4.4/docs/emc.pdf`）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)
+- **核对日期：** 2026-07-27
+- **翻译状态：** 概览翻译（未逐段完整翻译）

@@ -227,3 +227,13 @@ EMC Setup 生成的 LAMMPS 输入脚本通常包含完整的 NVT 平衡部分。
 - [升温流程](heating.md)
 - [加热与退火](heating.md)
 - [生产模拟](production.md)
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — fix nvt/npt/nph command
+- **官方章节或命令：** `fix nvt`
+- **官方 URL：** https://docs.lammps.org/fix_nh.html
+- **本地来源：** 本地未获取
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）
+- **核对日期：** 2026-07-27
+- **内容说明：** 本章为编者整理的 NVT 模拟流程指南，结合官方文档与编者注释编写。
