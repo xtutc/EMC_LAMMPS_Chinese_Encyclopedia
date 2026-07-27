@@ -1026,11 +1026,111 @@ grep -L "官方来源" docs/01_emc_official_translation/*.md docs/02_emc_setup_r
   - `python3 scripts/check_nav.py --strict`：退出码 `0`，38 ↔ 38、0 error、0 warning。
   - `python3 scripts/check_status.py --strict`：退出码 `0`，11 个模块全部 MATCH。
   - `python3 -m mkdocs build --strict`：退出码 `0`，站点构建成功。
-- **Git commit：** 待创建。
+- **Git commit：** `535f5d9` (`docs: complete TASK-008 source metadata`)。
 
 ### Claude Code 验收结果
 
-（由 Claude Code 填写）
+- **验收日期：** 2026-07-27
+- **验收 Commit：** `45d06cc`（Codex 实现）
+- **检查文件：** 全部 30 个内容页面 + 8 个导航/入口页面
+
+#### 验收标准逐项检查
+
+1. ❌ **所有内容页面有独立的"## 官方来源"章节：**
+
+   Codex 仅在 **11 个**文件中添加了 `## 官方来源` 章节。加上 TASK-004 创建的 2 个 index 页面（`01_emc_official_translation/index.md`、`07_lammps_command_reference/index.md`），共 **13 个（43%）**内容页面有此章节。
+
+   **17 个内容页面缺失 `## 官方来源` 章节：**
+
+   | # | 文件 | 现有 metadata（不完整） |
+   |---|------|------------------------|
+   | 1 | `01/emc_ch1_introduction.md` | 有 `官方来源：EMC Manual PDF`，**无核对日期** |
+   | 2 | `01/emc_ch2_methodology.md` | 有 `官方来源：EMC Manual PDF`，**无核对日期** |
+   | 3 | `01/emc_ch3_program_structure.md` | 有 `官方来源：EMC Manual PDF`，**无核对日期** |
+   | 4 | `01/emc_ch4_simulation_setup.md` | 有 `官方来源：EMC Manual PDF`，**无核对日期** |
+   | 5 | `02/setup_cli.md` | 有 `官方来源：emc.pl -help`，**无核对日期** |
+   | 6 | `02/setup_overview.md` | 有 `官方来源：EMC Welcome`，**无核对日期** |
+   | 7 | `03/emc_cli.md` | 有 `官方来源：emc -help`，**无核对日期** |
+   | 8 | `04/homopolymers.md` | 有 `官方来源：EMC 手册`，**无核对日期** |
+   | 9 | `05/emc_force_field_inventory.md` | 有 `官方来源：EMC Features`，**无核对日期** |
+   | 10 | `06/input_script_syntax.md` | 有 `官方来源：Commands_input`，**无核对日期** |
+   | 11 | `06/lammps_cli_options.md` | 有 `官方来源：Run Options`，**无核对日期** |
+   | 12 | `08/data_file.md` | 有 `官方来源：read_data`，**无核对日期** |
+   | 13 | `09/complete_workflow.md` | 有 `官方来源：EMC 官方手册`，**无核对日期** |
+   | 14 | `09/units_mapping.md` | 有 `官方来源：LAMMPS units`，**无核对日期** |
+   | 15 | `10/minimization.md` | 有 `官方来源：minimize`，**无核对日期** |
+   | 16 | `10/npt.md` | 有 `官方来源：fix npt`，**无核对日期** |
+   | 17 | `10/nvt.md` | 有 `官方来源：fix nvt`，**无核对日期** |
+
+   **任务背景（TASKS.md 原第 1088 行）明确指出：**「当前没有页面严格使用此格式。部分页面在 metadata 头部有简要标注，但缺少核对日期、本地来源路径等关键信息。」metadata 头部的简要标注不足以满足任务要求。
+
+2. ⚠️ **至少包含：官方 URL、适用版本、核对日期：**
+   - Codex 添加的 11 个章节**均**包含三个必填字段 ✅
+   - TASK-004 创建的 2 个 index 页面包含必填字段 ✅
+   - 17 个缺失页面的 metadata 头部均**缺少核对日期**和**本地来源路径**字段 ❌
+
+3. ✅ **来源信息与 source_manifest.csv 一致：**
+   - EMC URL `montecarlo.sourceforge.net/emc/Welcome.html` ↔ manifest 行 27
+   - EMC Features URL ↔ manifest 行 28
+   - LAMMPS 命令 URL `docs.lammps.org/<command>.html` ↔ manifest 行 29
+   - 服务器路径 `/opt/emc-9.4.4/` ↔ manifest 行 1-6
+
+4. N/A **缺少的信息标注为"待补充"：** 编者原创内容（heating.md、production.md、fundamentals.md）正确标注了 `内容说明：本章为编者整理...`
+
+#### Codex 修改的 11 个文件内容质量逐项检查
+
+| 文件 | 官方标题 | URL | 版本 | 核对日期 | 本地来源 | 评价 |
+|------|---------|-----|------|---------|---------|------|
+| emc_ch5_workflow_agent.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好 |
+| emc_ch6_scripting_commands.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好 |
+| molecules.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好 |
+| fundamentals.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好（含内容说明） |
+| thermo.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好 |
+| dump.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好 |
+| fix_shake.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好 |
+| velocity.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好 |
+| style_mapping.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好 |
+| heating.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好（含内容说明） |
+| production.md | ✅ | ✅ | ✅ | ✅ | ✅ | 好（含内容说明） |
+
+**Codex 编写的 11 个章节本身质量无问题，格式统一、信息准确。**
+
+#### 核对日期偏离
+
+任务要求核对日期 `2026-07-26`，Codex 使用 `2026-07-27`（实际实现日期）。**可接受的偏差** — 使用实际日期更准确，且 TASK-004/005/007 等其他任务也使用了实际实现日期。
+
+#### 实现要求检查
+
+| 要求 | 状态 | 说明 |
+|------|------|------|
+| 可追溯官方文档的页面填写完整来源信息 | ⚠️ | 仅 11/28（39%）完成 |
+| 编者原创内容标注"编者编写"并说明参考 | ✅ | heating/production/fundamentals 有"内容说明" |
+| 本地来源路径用 `/opt/emc-9.4.4/` 前缀 | ✅ | 服务器路径正确标注 |
+| 核对日期统一 | ✅ | 统一 2026-07-27 |
+
+#### 重新运行的验证命令
+
+| 命令 | 退出码 | 结果 |
+|------|--------|------|
+| `grep` 精确搜索缺失 `^## 官方来源` | 1 | 17 个内容页面缺失 |
+| `python3 scripts/check_links.py --strict` | 0 | 38 文件，0 ERROR |
+| `python3 scripts/check_nav.py --strict` | 0 | 38 ↔ 38，0 error |
+| `python3 scripts/check_status.py --strict` | 0 | 11/11 模块 MATCH |
+| `python3 -m mkdocs build --strict` | 0 | 构建成功 0.56s |
+
+#### 范围边界检查
+
+- ✅ 未修改页面正文内容
+- ✅ 未删除已有来源信息
+- ❌ **未覆盖全部 30 个内容页面，遗漏 17 个（57%）**
+
+#### 结论
+
+**❌ 验收不通过。** Codex 仅完成了 11/30（37%）内容页面的 `## 官方来源` 章节添加。Codex 在实现记录中也写道「仅在指定的 11 个内容页面末尾追加」— 有意将范围限定在 11 个文件，但未说明跳过其余 17 个的理由。
+
+遗漏的 17 个页面虽在 metadata 头部有简要来源标注，但**均缺少核对日期和本地来源路径**— 这正是任务背景中指出的待修正问题。
+
+**需要补充：** 为 17 个缺失页面逐一添加完整的 `## 官方来源` 章节。
 
 ---
 
