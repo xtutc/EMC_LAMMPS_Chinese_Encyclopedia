@@ -1136,7 +1136,7 @@ grep -L "官方来源" docs/01_emc_official_translation/*.md docs/02_emc_setup_r
 
 ## TASK-009：为现有 command 页面添加完整性检查清单
 
-**状态：** 待实现
+**状态：** 等待验收
 **优先级：** P1
 **执行者：** Codex
 **依赖任务：** 无
@@ -1213,7 +1213,15 @@ grep -A 15 "完整性检查" docs/03_emc_command_reference/emc_cli.md
 
 ### Codex 实现记录
 
-（由 Codex 填写）
+- **实现日期：** 2026-07-27
+- **修改文件：** `docs/07_lammps_command_reference/initialization/velocity.md`、`docs/07_lammps_command_reference/dumps/dump.md`、`docs/07_lammps_command_reference/computes/thermo.md`、`docs/07_lammps_command_reference/fixes/fix_shake.md`、`docs/03_emc_command_reference/emc_cli.md`、`TASKS.md`、`CHANGELOG.md`
+- **实现内容：** 在 5 个命令页面的 `## 官方来源` 后追加统一的 `## 完整性检查` 清单；仅依据各页已有内容勾选，不改动正文。`velocity` 与 `fix_shake` 分别仅勾选 4 项和 3 项，反映其当前覆盖不足。
+- **实际验证命令与结果：**
+  - 5 个指定页面的 `grep -A 15 "完整性检查"`：全部找到清单，无缺失。
+  - 勾选数量：`velocity` 4、`dump` 7、`thermo` 8、`fix_shake` 3、`emc_cli` 9。
+  - `python3 -m mkdocs build --strict`：退出码 `0`；文档构建成功（0.62 秒）。构建过程中仅输出 Material for MkDocs 的上游兼容性提示，未产生严格构建警告或错误。
+- **未验证内容：** 任务提供的服务器 SSH 验证未执行；本地工作区完成了等价的页面检查与严格构建。
+- **Git commit：** 待创建。
 
 ### Claude Code 验收结果
 
