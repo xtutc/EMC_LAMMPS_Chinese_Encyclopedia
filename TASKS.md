@@ -1221,7 +1221,7 @@ grep -A 15 "完整性检查" docs/03_emc_command_reference/emc_cli.md
   - 勾选数量：`velocity` 4、`dump` 7、`thermo` 8、`fix_shake` 3、`emc_cli` 9。
   - `python3 -m mkdocs build --strict`：退出码 `0`；文档构建成功（0.62 秒）。构建过程中仅输出 Material for MkDocs 的上游兼容性提示，未产生严格构建警告或错误。
 - **未验证内容：** 任务提供的服务器 SSH 验证未执行；本地工作区完成了等价的页面检查与严格构建。
-- **Git commit：** 待创建。
+- **Git commit：** `4c7db8b` (`docs: add command completeness checklists`)。
 
 ### Claude Code 验收结果
 
