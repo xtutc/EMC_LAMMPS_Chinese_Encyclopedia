@@ -1013,7 +1013,7 @@ grep -L "官方来源" docs/01_emc_official_translation/*.md docs/02_emc_setup_r
   - `python3 scripts/check_links.py --strict`：退出码 `0`；检查 38 个 Markdown 文件，`0 error(s)`、`0 info message(s)`。
   - `python3 -m mkdocs build --strict`：退出码 `0`；站点构建成功。
 - **未验证内容：** 未在服务器环境运行 `lmp_serial -h`；本任务只按指定模板补充来源元数据，未宣称执行命令验证。
-- **Git commit：** 待创建。
+- **Git commit：** `45d06cc` (`docs: add source metadata for TASK-008`)。
 
 ### Claude Code 验收结果
 
