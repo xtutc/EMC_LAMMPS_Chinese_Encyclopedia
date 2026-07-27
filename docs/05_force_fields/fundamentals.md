@@ -118,3 +118,13 @@ grep "Atoms" -A 9999 system.data | awk '{sum+=$4} END {print sum}'
 - [EMC 力场清单](emc_force_field_inventory.md)
 - [Units 映射](../09_emc_to_lammps/units_mapping.md)
 - [EMC→LAMMPS 工作流](../09_emc_to_lammps/complete_workflow.md)
+
+## 官方来源
+
+- **官方标题：** EMC Features — Force Fields
+- **官方章节：** EMC Supported Force Fields
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Features.html
+- **本地来源：** `sources/emc/emc_manual.pdf` 及相关力场目录
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)；LAMMPS 22 Jul 2025 - Update 4
+- **核对日期：** 2026-07-27
+- **内容说明：** 本章为编者根据多方资料整理的基础说明，部分内容属于编者注。

@@ -70,3 +70,12 @@ fix 1 all npt temp 300.0 300.0 100.0 iso 1.0 1.0 1000.0
 ## 验证状态
 
 * ✅ 官方翻译
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — velocity command
+- **官方命令：** velocity
+- **官方 URL：** https://docs.lammps.org/velocity.html
+- **本地来源：** 通过 `lmp_serial -h velocity` 可验证参数存在性
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）
+- **核对日期：** 2026-07-27

@@ -202,3 +202,12 @@ EMC Setup 的 `-dtthermo` 参数控制 thermo 输出频率。生成的脚本通�
 - [dump 命令](../dumps/dump.md)
 - compute 命令（相关类别目录，待创建）
 - [最小化流程](../../10_simulation_workflows/minimization.md)
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — thermo command
+- **官方命令：** thermo
+- **官方 URL：** https://docs.lammps.org/thermo.html
+- **本地来源：** 通过 `lmp_serial -h thermo` 可验证参数存在性
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）
+- **核对日期：** 2026-07-27

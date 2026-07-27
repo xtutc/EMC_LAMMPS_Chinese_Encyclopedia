@@ -75,3 +75,13 @@ run 5000000
 ---
 
 ## 验证： [NVT](nvt.md) | [NPT](npt.md) | [加热](heating.md)
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — Howto discussions
+- **官方章节：** LAMMPS 官方文档 Howto 部分中关于 NVT、NPT 模拟的说明
+- **官方 URL：** https://docs.lammps.org/Howto.html
+- **本地来源：** LAMMPS 本地安装内置示例（`/opt/homebrew/share/lammps/examples/`）
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4
+- **核对日期：** 2026-07-27
+- **内容说明：** 本章为编者整理的模拟流程实践指南，结合官方文档与编者经验编写。

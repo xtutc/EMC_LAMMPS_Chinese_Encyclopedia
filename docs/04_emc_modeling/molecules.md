@@ -185,3 +185,12 @@ Atoms
 - [力场清单](../05_force_fields/emc_force_field_inventory.md)
 - [EMC→LAMMPS 工作流](../09_emc_to_lammps/complete_workflow.md)
 - [EMC Setup 总览](../02_emc_setup_reference/setup_overview.md)
+
+## 官方来源
+
+- **官方标题：** EMC Setup Manual v9.4.4 — 分子建模相关章节
+- **官方章节：** EMC Manual 中分子体系构建部分
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `sources/emc/emc_manual.pdf`
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)
+- **核对日期：** 2026-07-27

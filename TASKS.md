@@ -942,7 +942,7 @@ grep -rn "LAMMPS 22 Jul 2025" docs/ --include="*.md" | grep -v "Update 4"
 
 ## TASK-008：为所有内容页面补齐来源元数据章节
 
-**状态：** 待实现
+**状态：** 等待验收
 **优先级：** P1
 **执行者：** Codex
 **依赖任务：** 无
@@ -1005,7 +1005,15 @@ grep -L "官方来源" docs/01_emc_official_translation/*.md docs/02_emc_setup_r
 
 ### Codex 实现记录
 
-（由 Codex 填写）
+- **实现日期：** 2026-07-27
+- **修改文件：** `docs/01_emc_official_translation/emc_ch5_workflow_agent.md`、`docs/01_emc_official_translation/emc_ch6_scripting_commands.md`、`docs/04_emc_modeling/molecules.md`、`docs/05_force_fields/fundamentals.md`、`docs/07_lammps_command_reference/computes/thermo.md`、`docs/07_lammps_command_reference/dumps/dump.md`、`docs/07_lammps_command_reference/fixes/fix_shake.md`、`docs/07_lammps_command_reference/initialization/velocity.md`、`docs/09_emc_to_lammps/style_mapping.md`、`docs/10_simulation_workflows/heating.md`、`docs/10_simulation_workflows/production.md`、`TASKS.md`、`CHANGELOG.md`
+- **实现内容：** 仅在指定的 11 个内容页面末尾追加独立的 `## 官方来源` 章节；EMC 手册章节使用手册第 5、6 章的可定位标题，LAMMPS 命令、力场、映射与工作流页面均按任务模板记录官方 URL、适用版本和核对日期。
+- **实际验证命令与结果：**
+  - 11 文件末尾字段检查：全部通过；每个文件均含 `官方来源`、`官方 URL`、`适用版本` 和 `核对日期`。
+  - `python3 scripts/check_links.py --strict`：退出码 `0`；检查 38 个 Markdown 文件，`0 error(s)`、`0 info message(s)`。
+  - `python3 -m mkdocs build --strict`：退出码 `0`；站点构建成功。
+- **未验证内容：** 未在服务器环境运行 `lmp_serial -h`；本任务只按指定模板补充来源元数据，未宣称执行命令验证。
+- **Git commit：** 待创建。
 
 ### Claude Code 验收结果
 

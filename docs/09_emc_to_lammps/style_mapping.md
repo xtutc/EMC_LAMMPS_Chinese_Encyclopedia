@@ -50,3 +50,12 @@
 - [力场清单](../05_force_fields/emc_force_field_inventory.md)
 - [Units 映射](units_mapping.md)
 - [完整工作流](complete_workflow.md)
+
+## 官方来源
+
+- **官方标题：** EMC Features — Supported Force Fields and LAMMPS Mapping
+- **官方章节：** EMC ↔ LAMMPS Style Mapping
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Features.html
+- **本地来源：** `sources/emc/emc_manual.pdf`；EMC force field files（`/opt/emc-9.4.4/field/`）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)；LAMMPS 22 Jul 2025 - Update 4（本地）/ 7 Feb 2024 - Update 1（服务器）
+- **核对日期：** 2026-07-27

@@ -67,3 +67,12 @@ timestep 2.0    # ← 可提升到 2 fs
 ## 验证状态
 
 * ✅ 官方翻译
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — fix shake command
+- **官方命令：** fix shake
+- **官方 URL：** https://docs.lammps.org/fix_shake.html
+- **本地来源：** 通过 `lmp_serial -h fix_shake` 可验证参数存在性
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）
+- **核对日期：** 2026-07-27

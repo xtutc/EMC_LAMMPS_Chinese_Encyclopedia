@@ -95,3 +95,13 @@ run 5000
 
 ## 验证： ✅ 官方翻译 | ⬜ 未验证
 ## 相关： [第4章](emc_ch4_simulation_setup.md) | [第5章](emc_ch5_workflow_agent.md) | [EMC CLI](../03_emc_command_reference/emc_cli.md)
+
+## 官方来源
+
+- **官方标题：** EMC Setup Manual v9.4.4 — Chapter 6: Scripting Commands
+- **官方章节：** 6 Scripting Commands
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `sources/emc/emc_manual.pdf`（服务器路径：`/opt/emc-9.4.4/docs/emc.pdf`）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)
+- **核对日期：** 2026-07-27
+- **翻译状态：** 概览翻译（本章为概览翻译，未逐段完整翻译）

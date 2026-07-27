@@ -69,3 +69,13 @@ EMC Workflow 使用配置文件记录所有参数。支持版本化，确保可�
 
 ## 验证： ✅ 官方翻译 | ⬜ 未验证
 ## 相关： [第4章](emc_ch4_simulation_setup.md) | [第6章](emc_ch6_scripting_commands.md)
+
+## 官方来源
+
+- **官方标题：** EMC Setup Manual v9.4.4 — Chapter 5: Workflow Agent
+- **官方章节：** 5 Workflow Agent
+- **官方 URL：** https://montecarlo.sourceforge.net/emc/Welcome.html
+- **本地来源：** `sources/emc/emc_manual.pdf`（服务器路径：`/opt/emc-9.4.4/docs/emc.pdf`）
+- **适用版本：** EMC 9.4.4 (Jul 21 2026)
+- **核对日期：** 2026-07-27
+- **翻译状态：** 概览翻译（本章为概览翻译，未逐段完整翻译）

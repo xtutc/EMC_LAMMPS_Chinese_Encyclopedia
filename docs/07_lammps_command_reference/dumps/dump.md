@@ -154,3 +154,12 @@ EMC 生成的 LAMMPS 输入脚本通常包含 dump 命令。Setup 的 `-dtdump` 
 - [thermo 命令](../computes/thermo.md)
 - write_dump 命令（待创建）
 - read_dump 命令（待创建）
+
+## 官方来源
+
+- **官方标题：** LAMMPS Documentation — dump command
+- **官方命令：** dump
+- **官方 URL：** https://docs.lammps.org/dump.html
+- **本地来源：** 通过 `lmp_serial -h dump` 可验证参数存在性
+- **适用版本：** LAMMPS 22 Jul 2025 - Update 4（本地）
+- **核对日期：** 2026-07-27
