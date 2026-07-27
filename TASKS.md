@@ -1220,7 +1220,8 @@ grep -A 15 "完整性检查" docs/03_emc_command_reference/emc_cli.md
   - 5 个指定页面的 `grep -A 15 "完整性检查"`：全部找到清单，无缺失。
   - 勾选数量：`velocity` 4、`dump` 7、`thermo` 8、`fix_shake` 3、`emc_cli` 9。
   - `python3 -m mkdocs build --strict`：退出码 `0`；文档构建成功（0.62 秒）。构建过程中仅输出 Material for MkDocs 的上游兼容性提示，未产生严格构建警告或错误。
-- **未验证内容：** 任务提供的服务器 SSH 验证未执行；本地工作区完成了等价的页面检查与严格构建。
+- **服务器验证：** 2026-07-27 通过 SSH 在 `lyd@192.168.1.11:/home/lyd/EMC_LAMMPS_Chinese_Encyclopedia` 执行同一组页面检查；5 个清单均找到，勾选数量同上。服务器 Conda 环境安装 `mkdocs 1.6.1` 与 `mkdocs-material 9.7.7` 后，`python -m mkdocs build --strict` 退出码 `0`，构建成功（0.53 秒）；仅输出 Material for MkDocs 的上游兼容性提示。
+- **未验证内容：** 无。
 - **Git commit：** `4c7db8b` (`docs: add command completeness checklists`)。
 
 ### Claude Code 验收结果
